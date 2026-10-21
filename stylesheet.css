@@ -1,0 +1,19 @@
+/* SPDX-License-Identifier: GPL-3.0-only
+ * Background treatment adapted from Blur my Shell's src/styles/popup/base.css
+ * (aunetx and contributors). Unlike its global selector list, our class is
+ * attached only to registered blur targets. Keep the Shell's control styling.
+ */
+.opb-transparent {
+    background: transparent !important;
+    border-color: transparent;
+}
+
+/* Deliberately cover every Quick Settings submenu, including QST overlay mode.
+ * These are foreground sheets: transparency would reveal the controls below.
+ * A fixed Adwaita dark surface is intentional, independent of popup blur tint.
+ */
+.opb-active .quick-toggle-menu,
+.opb-active .quick-toggle-menu.opb-transparent {
+    background: #2e2e32 !important;
+    border-color: rgba(255, 255, 255, 0.08);
+}

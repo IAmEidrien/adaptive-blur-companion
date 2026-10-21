@@ -1,0 +1,11 @@
+{
+  "uuid": "dynamic-overview-popup-backgrounds@eidrien.local",
+  "name": "Dynamic Overview Popup Backgrounds",
+  "description": "A Blur my Shell companion: reveal popup blur in Overview, restore themed backgrounds outside it, and keep Quick Settings submenus opaque. Requires popup blur enabled and Override background disabled in Blur my Shell.",
+  "shell-version": [
+    "46"
+  ],
+  "version": 1,
+  "version-name": "1.0.0",
+  "url": "https://github.com/IAmEidrien/dynamic-overview-popup-backgrounds"
+}
