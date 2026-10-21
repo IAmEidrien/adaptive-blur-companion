@@ -104,7 +104,7 @@ test('dependency guards reject missing, old, disabled and conflicting BMS', () =
     assert.equal(dependency(f.info).reason, 'waiting');
 });
 
-test('only registered surfaces become transparent in Overview and inline styles survive', () => {
+test('only registered surfaces receive Overview styling and inline styles survive', () => {
     const f = fixture();
     f.extension.enable(); f.flush();
     assert.ok(f.root.classes.has(ACTIVE_CLASS));

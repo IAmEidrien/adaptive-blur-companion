@@ -7,7 +7,10 @@ https://github.com/aunetx/blur-my-shell
 Reference revision: 30a8e73f370e8e32577b6916803ef139bdd91282.
 Relevant files:
 
-- src/styles/popup/base.css: transparent popup backgrounds and border treatment.
+- src/styles/popup/base.css: translucent popup backgrounds, notification cards
+  and border treatment.
+- src/styles/popup/dark.css: calendar, notifications and smaller controls.
+- src/styles/popup/menu-items.css: menu-item and slider interaction states.
 - src/components/popup/index.js: surface registry and independent background override.
 - src/components/popup/targets.js: popup/Quick Settings surface classification.
 

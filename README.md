@@ -2,7 +2,8 @@
 
 A small GNOME Shell 46 companion to **Blur my Shell's modern popup blur**.
 
-- In Overview, registered popup blur surfaces have transparent backgrounds.
+- In Overview, registered popup blur surfaces use BMS’s dark translucent tint, with
+  matching notification, calendar and smaller-control styling.
 - Outside Overview, their normal Shell-theme backgrounds return.
 - Quick Settings submenus always use an opaque Adwaita dark background
   (`#2e2e32`), including Quick Settings Tweaks' overlay layout.
@@ -58,8 +59,11 @@ The helper reads `_popup.surfaces`, `_popup.enabled`, and
 **internal APIs**, checked at runtime. An incompatible version leaves the helper
 inactive instead of patching or replacing Blur my Shell functions.
 
-Styling attaches only to registered target actors; embedded control colors,
-text, inline geometry and other extensions' style classes are preserved.
+Overview styling is scoped to registered target actors and their contents. The
+outer tint matches BMS dark mode (`rgba(30, 30, 33, 0.5)`); notification cards,
+calendar sections and small action buttons use its coordinated translucency.
+Checked toggle and dropdown-arrow accents remain controlled by your Shell theme.
+Inline geometry and other extensions’ style classes are preserved.
 The Quick Settings exception intentionally covers all `.quick-toggle-menu`
 submenus rather than depending on Quick Settings Tweaks' private state.
 The opaque submenu fallback does not sample the changing wallpaper palette.

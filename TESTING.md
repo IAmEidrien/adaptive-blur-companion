@@ -7,7 +7,10 @@ particular theme, Quick Settings Tweaks or Blur my Shell revision.
    this helper. Open the clock, Quick Settings and one other blurred popup outside
    Overview: original theme backgrounds should remain.
 2. Open Overview, then these menus: blurred wallpaper should show through their
-   backgrounds while controls, text and borders remain usable.
+   backgrounds with BMS’s dark tint while controls, text and borders remain usable.
+   Compare notification drawer cards and banners, calendar/events/weather, top
+   Quick Settings actions and slider buttons against BMS dark Override background.
+   Check hover/focus/pressed states and confirm checked toggles remain accented.
 3. In Quick Settings open Wi-Fi, Bluetooth, Background Apps and another submenu.
    Test both inside and outside Overview, with QST overlay mode on and off.
    Every submenu must be opaque; controls beneath it must not show through.

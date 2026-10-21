@@ -1,19 +1,829 @@
 /* SPDX-License-Identifier: GPL-3.0-only
- * Background treatment adapted from Blur my Shell's src/styles/popup/base.css
- * (aunetx and contributors). Unlike its global selector list, our class is
- * attached only to registered blur targets. Keep the Shell's control styling.
+ * Adapted from Blur my Shell by aunetx and contributors, revision
+ * 30a8e73f370e8e32577b6916803ef139bdd91282:
+ * src/styles/popup/{base,dark,menu-items}.css. See NOTICE.md and LICENSE.
+ *
+ * opb-transparent is the original helper's class name. It now means the
+ * full tinted Overview treatment, not an entirely transparent background.
+ * Rules are scoped to registered surfaces and their contents, never uiGroup.
+ * Keep native toggle/arrow accents and GNOME 46-compatible color fallbacks.
  */
 .opb-transparent {
-    background: transparent !important;
+    background: rgba(30, 30, 33, 0.5) !important;
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.opb-transparent .popup-menu-content,
+.opb-transparent.popup-menu-content,
+.opb-transparent .popup-sub-menu,
+.opb-transparent.popup-sub-menu,
+.opb-transparent .candidate-popup-content,
+.opb-transparent.candidate-popup-content,
+.opb-transparent .quick-settings,
+.opb-transparent.quick-settings,
+.opb-transparent .quick-toggle-menu,
+.opb-transparent.quick-toggle-menu,
+.opb-transparent .message,
+.opb-transparent.message,
+.opb-transparent .osd-window,
+.opb-transparent.osd-window,
+.opb-transparent .resize-popup,
+.opb-transparent.resize-popup,
+.opb-transparent .switcher-list,
+.opb-transparent.switcher-list,
+.opb-transparent .workspace-switcher,
+.opb-transparent.workspace-switcher,
+.opb-transparent .modal-dialog,
+.opb-transparent.modal-dialog,
+.opb-transparent .run-dialog,
+.opb-transparent.run-dialog,
+.opb-transparent .clipboard-dialog,
+.opb-transparent.clipboard-dialog,
+.opb-transparent .screenshot-ui-panel,
+.opb-transparent.screenshot-ui-panel {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.opb-transparent .popup-menu-content,
+.opb-transparent.popup-menu-content,
+.opb-transparent .popup-sub-menu,
+.opb-transparent.popup-sub-menu,
+.opb-transparent .candidate-popup-content,
+.opb-transparent.candidate-popup-content,
+.opb-transparent .quick-settings,
+.opb-transparent.quick-settings,
+.opb-transparent .osd-window,
+.opb-transparent.osd-window,
+.opb-transparent .resize-popup,
+.opb-transparent.resize-popup,
+.opb-transparent .switcher-list,
+.opb-transparent.switcher-list,
+.opb-transparent .workspace-switcher,
+.opb-transparent.workspace-switcher,
+.opb-transparent .message,
+.opb-transparent.message,
+.opb-transparent .modal-dialog,
+.opb-transparent.modal-dialog,
+.opb-transparent .run-dialog,
+.opb-transparent.run-dialog,
+.opb-transparent .clipboard-dialog,
+.opb-transparent.clipboard-dialog,
+.opb-transparent .screenshot-ui-panel,
+.opb-transparent.screenshot-ui-panel {
+    background: rgba(30, 30, 33, 0.5) !important;
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.opb-transparent .quick-toggle-menu,
+.opb-transparent.quick-toggle-menu {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.opb-transparent .modal-dialog,
+.opb-transparent.modal-dialog,
+.opb-transparent .run-dialog,
+.opb-transparent.run-dialog,
+.opb-transparent .clipboard-dialog,
+.opb-transparent.clipboard-dialog {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.opb-transparent .message-list .message,
+.opb-transparent.message-list .message {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.opb-transparent .message-list .message:hover,
+.opb-transparent.message-list .message:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.opb-transparent .message-list .message:focus,
+.opb-transparent.message-list .message:focus,
+.opb-transparent .message-list .message:active,
+.opb-transparent.message-list .message:active {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.opb-transparent StScrollBar StBin#trough {
+    background-color: transparent;
+}
+
+.opb-transparent StScrollBar > .vhandle,
+.opb-transparent StScrollBar > .hhandle {
+    background-color: rgba(255, 255, 255, 0.28);
     border-color: transparent;
 }
 
-/* Deliberately cover every Quick Settings submenu, including QST overlay mode.
- * These are foreground sheets: transparency would reveal the controls below.
- * A fixed Adwaita dark surface is intentional, independent of popup blur tint.
+.opb-transparent StScrollBar > .vhandle:hover,
+.opb-transparent StScrollBar > .hhandle:hover {
+    background-color: rgba(255, 255, 255, 0.38);
+}
+
+.opb-transparent StScrollBar > .vhandle:active,
+.opb-transparent StScrollBar > .hhandle:active {
+    background-color: rgba(255, 255, 255, 0.46);
+}
+
+.opb-transparent .osd-window,
+.opb-transparent.osd-window,
+.opb-transparent .resize-popup,
+.opb-transparent.resize-popup,
+.opb-transparent .workspace-switcher,
+.opb-transparent.workspace-switcher {
+    border-radius: 18px;
+}
+
+.opb-transparent .osd-window .level,
+.opb-transparent.osd-window .level {
+    -barlevel-background-color: rgba(255, 255, 255, 0.14);
+    -barlevel-active-background-color: #ffffff;
+    -barlevel-overdrive-color: #f66151;
+}
+
+.opb-transparent .switcher-list .item-box:focus,
+.opb-transparent.switcher-list .item-box:focus,
+.opb-transparent .switcher-list .item-box:selected,
+.opb-transparent.switcher-list .item-box:selected {
+    background-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+.opb-transparent .popup-sub-menu,
+.opb-transparent.popup-sub-menu {
+    background: transparent !important;
+    border-color: transparent;
+    border-radius: 0 0 13px 13px;
+}
+
+.opb-transparent .popup-sub-menu > StBoxLayout,
+.opb-transparent.popup-sub-menu > StBoxLayout {
+    background-color: rgba(255, 255, 255, 0.11) !important;
+    border-radius: 0 0 13px 13px;
+}
+
+.opb-transparent .popup-sub-menu .popup-menu-item,
+.opb-transparent.popup-sub-menu .popup-menu-item {
+    background-color: transparent !important;
+    border-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.opb-transparent .popup-sub-menu .popup-menu-item:insensitive,
+.opb-transparent.popup-sub-menu .popup-menu-item:insensitive {
+    background-color: transparent !important;
+}
+
+.opb-transparent .screenshot-ui-type-button,
+.opb-transparent.screenshot-ui-type-button,
+.opb-transparent .screenshot-ui-type-button:insensitive,
+.opb-transparent.screenshot-ui-type-button:insensitive {
+    background-color: transparent !important;
+}
+
+.opb-transparent .screenshot-ui-type-button:checked,
+.opb-transparent.screenshot-ui-type-button:checked,
+.opb-transparent .screenshot-ui-type-button:focus,
+.opb-transparent.screenshot-ui-type-button:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.opb-transparent .screenshot-ui-type-button:focus,
+.opb-transparent.screenshot-ui-type-button:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent .screenshot-ui-type-button:hover,
+.opb-transparent.screenshot-ui-type-button:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.opb-transparent .screenshot-ui-type-button:active,
+.opb-transparent.screenshot-ui-type-button:active,
+.opb-transparent .screenshot-ui-type-button:outlined,
+.opb-transparent.screenshot-ui-type-button:outlined {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.opb-transparent .screenshot-ui-show-pointer-button,
+.opb-transparent.screenshot-ui-show-pointer-button,
+.opb-transparent .screenshot-ui-show-pointer-button:insensitive,
+.opb-transparent.screenshot-ui-show-pointer-button:insensitive {
+    background-color: transparent !important;
+}
+
+.opb-transparent .screenshot-ui-show-pointer-button:checked,
+.opb-transparent.screenshot-ui-show-pointer-button:checked,
+.opb-transparent .screenshot-ui-show-pointer-button:focus,
+.opb-transparent.screenshot-ui-show-pointer-button:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.opb-transparent .screenshot-ui-show-pointer-button:hover,
+.opb-transparent.screenshot-ui-show-pointer-button:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.opb-transparent .screenshot-ui-show-pointer-button:active,
+.opb-transparent.screenshot-ui-show-pointer-button:active,
+.opb-transparent .screenshot-ui-show-pointer-button:outlined,
+.opb-transparent.screenshot-ui-show-pointer-button:outlined {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.opb-transparent .screenshot-ui-shot-cast-container,
+.opb-transparent.screenshot-ui-shot-cast-container {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.opb-transparent .screenshot-ui-shot-cast-button:hover,
+.opb-transparent.screenshot-ui-shot-cast-button:hover,
+.opb-transparent .screenshot-ui-shot-cast-button:focus,
+.opb-transparent.screenshot-ui-shot-cast-button:focus {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.opb-transparent .screenshot-ui-shot-cast-button:active,
+.opb-transparent.screenshot-ui-shot-cast-button:active {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.opb-transparent .screenshot-ui-shot-cast-button:checked,
+.opb-transparent.screenshot-ui-shot-cast-button:checked {
+    background-color: #ffffff !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+}
+
+.opb-transparent .popup-sub-menu .popup-menu-section,
+.opb-transparent.popup-sub-menu .popup-menu-section {
+    border-radius: 0 0 12px 12px;
+}
+
+.opb-transparent .popup-sub-menu .popup-menu-item:last-child,
+.opb-transparent.popup-sub-menu .popup-menu-item:last-child,
+.opb-transparent .popup-sub-menu .popup-menu-section .popup-menu-item:last-child,
+.opb-transparent.popup-sub-menu .popup-menu-section .popup-menu-item:last-child,
+.opb-transparent .popup-sub-menu .popup-menu-section:last-child .popup-menu-item:last-child,
+.opb-transparent.popup-sub-menu .popup-menu-section:last-child .popup-menu-item:last-child {
+    border-radius: 0 0 12px 12px;
+}
+
+.opb-transparent .bms-keyboard-surface,
+.opb-transparent.bms-keyboard-surface {
+    background: rgba(30, 30, 33, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.opb-transparent .message:second-in-stack,
+.opb-transparent.message:second-in-stack {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.opb-transparent .message:lower-in-stack,
+.opb-transparent.message:lower-in-stack {
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.opb-transparent .message-media-control,
+.opb-transparent.message-media-control {
+    color: rgba(255, 255, 255, 0.9) !important;
+    background-color: transparent;
+}
+
+.opb-transparent .message-media-control:hover,
+.opb-transparent.message-media-control:hover,
+.opb-transparent .message-expand-button:hover,
+.opb-transparent.message-expand-button:hover,
+.opb-transparent .switcher-list .item-box:hover,
+.opb-transparent.switcher-list .item-box:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.opb-transparent .message-media-control:active,
+.opb-transparent.message-media-control:active,
+.opb-transparent .message-expand-button:active,
+.opb-transparent.message-expand-button:active,
+.opb-transparent .switcher-list .item-box:active,
+.opb-transparent.switcher-list .item-box:active {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.opb-transparent .message-media-control:focus,
+.opb-transparent.message-media-control:focus,
+.opb-transparent .message-media-control:checked,
+.opb-transparent.message-media-control:checked,
+.opb-transparent .message-expand-button:focus,
+.opb-transparent.message-expand-button:focus,
+.opb-transparent .message-expand-button:checked,
+.opb-transparent.message-expand-button:checked {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.opb-transparent .message-media-control:insensitive,
+.opb-transparent.message-media-control:insensitive {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.opb-transparent .message .message-header,
+.opb-transparent.message .message-header,
+.opb-transparent .message .message-header .message-header-content .event-time,
+.opb-transparent.message .message-header .message-header-content .event-time,
+.opb-transparent .message .message-header .message-header-content .message-source-title,
+.opb-transparent.message .message-header .message-header-content .message-source-title {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.opb-transparent .message .message-box .message-content .message-title,
+.opb-transparent.message .message-box .message-content .message-title {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.opb-transparent .message .message-header .message-source-icon,
+.opb-transparent.message .message-header .message-source-icon {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.opb-transparent .notification-button,
+.opb-transparent.notification-button,
+.opb-transparent .message .message-header .message-expand-button,
+.opb-transparent.message .message-header .message-expand-button,
+.opb-transparent .message .message-header .message-close-button,
+.opb-transparent.message .message-header .message-close-button,
+.opb-transparent .message-notification-group .message-collapse-button,
+.opb-transparent.message-notification-group .message-collapse-button,
+.opb-transparent .message-list-controls .message-list-clear-button,
+.opb-transparent.message-list-controls .message-list-clear-button,
+.opb-transparent .modal-dialog .button,
+.opb-transparent.modal-dialog .button,
+.opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button,
+.opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button,
+.opb-transparent .quick-settings .icon-button,
+.opb-transparent.quick-settings .icon-button,
+.opb-transparent .quick-settings-system-item .button,
+.opb-transparent.quick-settings-system-item .button,
+.opb-transparent .quick-settings-system-item .icon-button,
+.opb-transparent.quick-settings-system-item .icon-button,
+.opb-transparent .quick-settings-system-item .power-item,
+.opb-transparent.quick-settings-system-item .power-item {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.opb-transparent .notification-button:hover,
+.opb-transparent.notification-button:hover,
+.opb-transparent .message .message-header .message-close-button:hover,
+.opb-transparent.message .message-header .message-close-button:hover,
+.opb-transparent .message .message-header .message-expand-button:hover,
+.opb-transparent.message .message-header .message-expand-button:hover,
+.opb-transparent .message-notification-group .message-collapse-button:hover,
+.opb-transparent.message-notification-group .message-collapse-button:hover,
+.opb-transparent .message-list-controls .message-list-clear-button:hover,
+.opb-transparent.message-list-controls .message-list-clear-button:hover,
+.opb-transparent .message-list-controls .message-list-clear-button:focus,
+.opb-transparent.message-list-controls .message-list-clear-button:focus,
+.opb-transparent .modal-dialog .button:hover,
+.opb-transparent.modal-dialog .button:hover,
+.opb-transparent .modal-dialog .button:focus,
+.opb-transparent.modal-dialog .button:focus,
+.opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:hover,
+.opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:hover,
+.opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:focus,
+.opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:focus,
+.opb-transparent .quick-settings .icon-button:hover,
+.opb-transparent.quick-settings .icon-button:hover,
+.opb-transparent .quick-settings .icon-button:focus,
+.opb-transparent.quick-settings .icon-button:focus,
+.opb-transparent .quick-settings-system-item .button:hover,
+.opb-transparent.quick-settings-system-item .button:hover,
+.opb-transparent .quick-settings-system-item .button:focus,
+.opb-transparent.quick-settings-system-item .button:focus,
+.opb-transparent .quick-settings-system-item .icon-button:hover,
+.opb-transparent.quick-settings-system-item .icon-button:hover,
+.opb-transparent .quick-settings-system-item .icon-button:focus,
+.opb-transparent.quick-settings-system-item .icon-button:focus,
+.opb-transparent .quick-settings-system-item .power-item:hover,
+.opb-transparent.quick-settings-system-item .power-item:hover,
+.opb-transparent .quick-settings-system-item .power-item:focus,
+.opb-transparent.quick-settings-system-item .power-item:focus {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.opb-transparent .message-list-controls .message-list-clear-button:focus,
+.opb-transparent.message-list-controls .message-list-clear-button:focus,
+.opb-transparent .modal-dialog .button:focus,
+.opb-transparent.modal-dialog .button:focus,
+.opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:focus,
+.opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:focus,
+.opb-transparent .quick-settings .icon-button:focus,
+.opb-transparent.quick-settings .icon-button:focus,
+.opb-transparent .quick-settings-system-item .button:focus,
+.opb-transparent.quick-settings-system-item .button:focus,
+.opb-transparent .quick-settings-system-item .icon-button:focus,
+.opb-transparent.quick-settings-system-item .icon-button:focus,
+.opb-transparent .quick-settings-system-item .power-item:focus,
+.opb-transparent.quick-settings-system-item .power-item:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent .notification-button:active,
+.opb-transparent.notification-button:active,
+.opb-transparent .message .message-header .message-expand-button:active,
+.opb-transparent.message .message-header .message-expand-button:active,
+.opb-transparent .message .message-header .message-close-button:active,
+.opb-transparent.message .message-header .message-close-button:active,
+.opb-transparent .message-notification-group .message-collapse-button:active,
+.opb-transparent.message-notification-group .message-collapse-button:active,
+.opb-transparent .message-list-controls .message-list-clear-button:active,
+.opb-transparent.message-list-controls .message-list-clear-button:active,
+.opb-transparent .modal-dialog .button:active,
+.opb-transparent.modal-dialog .button:active,
+.opb-transparent .modal-dialog .button:checked,
+.opb-transparent.modal-dialog .button:checked,
+.opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:active,
+.opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:active,
+.opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:checked,
+.opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:checked,
+.opb-transparent .quick-settings .icon-button:active,
+.opb-transparent.quick-settings .icon-button:active,
+.opb-transparent .quick-settings-system-item .icon-button:active,
+.opb-transparent.quick-settings-system-item .icon-button:active,
+.opb-transparent .quick-settings-system-item .button:active,
+.opb-transparent.quick-settings-system-item .button:active,
+.opb-transparent .quick-settings-system-item .power-item:active,
+.opb-transparent.quick-settings-system-item .power-item:active {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.opb-transparent .notification-button:insensitive,
+.opb-transparent.notification-button:insensitive,
+.opb-transparent .message-list-controls .message-list-clear-button:insensitive,
+.opb-transparent.message-list-controls .message-list-clear-button:insensitive,
+.opb-transparent .modal-dialog .button:insensitive,
+.opb-transparent.modal-dialog .button:insensitive,
+.opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:insensitive,
+.opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:insensitive {
+    color: rgba(255, 255, 255, 0.35) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.opb-transparent .calendar,
+.opb-transparent.calendar {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.opb-transparent .datemenu-today-button,
+.opb-transparent.datemenu-today-button {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.opb-transparent .datemenu-today-button:hover,
+.opb-transparent.datemenu-today-button:hover,
+.opb-transparent .datemenu-today-button:focus,
+.opb-transparent.datemenu-today-button:focus {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.opb-transparent .datemenu-today-button:focus,
+.opb-transparent.datemenu-today-button:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent .datemenu-today-button:active,
+.opb-transparent.datemenu-today-button:active,
+.opb-transparent .datemenu-today-button:checked,
+.opb-transparent.datemenu-today-button:checked {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.opb-transparent .datemenu-today-button StLabel,
+.opb-transparent.datemenu-today-button StLabel,
+.opb-transparent .datemenu-today-button .date-label,
+.opb-transparent.datemenu-today-button .date-label {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.opb-transparent .datemenu-today-button .day-label,
+.opb-transparent.datemenu-today-button .day-label {
+    color: rgba(255, 255, 255, 0.68) !important;
+}
+
+.opb-transparent .events-button,
+.opb-transparent.events-button,
+.opb-transparent .world-clocks-button,
+.opb-transparent.world-clocks-button,
+.opb-transparent .weather-button,
+.opb-transparent.weather-button {
+    background-color: rgba(255, 255, 255, 0.07) !important;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.opb-transparent .events-button:hover,
+.opb-transparent.events-button:hover,
+.opb-transparent .world-clocks-button:hover,
+.opb-transparent.world-clocks-button:hover,
+.opb-transparent .weather-button:hover,
+.opb-transparent.weather-button:hover {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.opb-transparent .events-button:focus,
+.opb-transparent.events-button:focus,
+.opb-transparent .world-clocks-button:focus,
+.opb-transparent.world-clocks-button:focus,
+.opb-transparent .weather-button:focus,
+.opb-transparent.weather-button:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent .events-button:active,
+.opb-transparent.events-button:active,
+.opb-transparent .world-clocks-button:active,
+.opb-transparent.world-clocks-button:active,
+.opb-transparent .weather-button:active,
+.opb-transparent.weather-button:active,
+.opb-transparent .events-button:focus,
+.opb-transparent.events-button:focus,
+.opb-transparent .world-clocks-button:focus,
+.opb-transparent.world-clocks-button:focus,
+.opb-transparent .weather-button:focus,
+.opb-transparent.weather-button:focus {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.opb-transparent .world-clocks-button .world-clocks-header.no-world-clocks,
+.opb-transparent.world-clocks-button .world-clocks-header.no-world-clocks,
+.opb-transparent .weather-button .weather-box .weather-header-box .weather-header.no-location,
+.opb-transparent.weather-button .weather-box .weather-header-box .weather-header.no-location {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.opb-transparent .events-button .events-box .events-title,
+.opb-transparent.events-button .events-box .events-title,
+.opb-transparent .events-box .events-list .event-box .event-time,
+.opb-transparent.events-box .events-list .event-box .event-time,
+.opb-transparent .events-button .events-box .events-list .event-placeholder,
+.opb-transparent.events-button .events-box .events-list .event-placeholder,
+.opb-transparent .world-clocks-button .world-clocks-header,
+.opb-transparent.world-clocks-button .world-clocks-header,
+.opb-transparent .world-clocks-button .world-clocks-grid .world-clocks-timezone,
+.opb-transparent.world-clocks-button .world-clocks-grid .world-clocks-timezone,
+.opb-transparent .weather-button .weather-box .weather-header-box .weather-header,
+.opb-transparent.weather-button .weather-box .weather-header-box .weather-header {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.opb-transparent .calendar .calendar-month-header .calendar-month-label,
+.opb-transparent.calendar .calendar-month-header .calendar-month-label,
+.opb-transparent .calendar .calendar-month-header .pager-button,
+.opb-transparent.calendar .calendar-month-header .pager-button {
+    color: rgba(255, 255, 255, 0.9) !important;
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.opb-transparent .calendar .calendar-day-heading,
+.opb-transparent.calendar .calendar-day-heading,
+.opb-transparent .calendar .calendar-day,
+.opb-transparent.calendar .calendar-day {
+    color: rgba(255, 255, 255, 0.9) !important;
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.opb-transparent .calendar .calendar-day-heading,
+.opb-transparent.calendar .calendar-day-heading {
+    color: rgba(255, 255, 255, 0.68) !important;
+}
+
+.opb-transparent .calendar .calendar-day.calendar-weekend,
+.opb-transparent.calendar .calendar-day.calendar-weekend {
+    color: rgba(255, 255, 255, 0.68) !important;
+}
+
+.opb-transparent .calendar .calendar-day.calendar-other-month,
+.opb-transparent.calendar .calendar-day.calendar-other-month,
+.opb-transparent .calendar .calendar-day.calendar-other-month.calendar-weekend,
+.opb-transparent.calendar .calendar-day.calendar-other-month.calendar-weekend {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.opb-transparent .calendar-day.calendar-today,
+.opb-transparent.calendar-day.calendar-today {
+    color: rgba(255, 255, 255, 0.9) !important;
+    background-color: #3584e4 !important;
+    color: -st-accent-fg-color !important;
+}
+
+.opb-transparent .calendar .calendar-day:hover,
+.opb-transparent.calendar .calendar-day:hover,
+.opb-transparent .calendar .calendar-month-header .pager-button:hover,
+.opb-transparent.calendar .calendar-month-header .pager-button:hover {
+    background-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+.opb-transparent .calendar .calendar-day:focus,
+.opb-transparent.calendar .calendar-day:focus,
+.opb-transparent .calendar .calendar-day-heading:focus,
+.opb-transparent.calendar .calendar-day-heading:focus,
+.opb-transparent .calendar .calendar-month-header .calendar-month-label:focus,
+.opb-transparent.calendar .calendar-month-header .calendar-month-label:focus,
+.opb-transparent .calendar .calendar-month-header .pager-button:focus,
+.opb-transparent.calendar .calendar-month-header .pager-button:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent .calendar-day:selected,
+.opb-transparent.calendar-day:selected,
+.opb-transparent .calendar .calendar-day:checked,
+.opb-transparent.calendar .calendar-day:checked,
+.opb-transparent .calendar .calendar-day:active,
+.opb-transparent.calendar .calendar-day:active,
+.opb-transparent .calendar .calendar-month-header .pager-button:active,
+.opb-transparent.calendar .calendar-month-header .pager-button:active {
+    color: rgba(255, 255, 255, 0.9) !important;
+    background-color: rgba(255, 255, 255, 0.19) !important;
+}
+
+.opb-transparent .calendar-day:selected:focus,
+.opb-transparent.calendar-day:selected:focus,
+.opb-transparent .calendar .calendar-day:checked:focus,
+.opb-transparent.calendar .calendar-day:checked:focus {
+    background-color: rgba(255, 255, 255, 0.19) !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent .calendar .calendar-day:active:hover,
+.opb-transparent.calendar .calendar-day:active:hover,
+.opb-transparent .calendar .calendar-day:checked:hover,
+.opb-transparent.calendar .calendar-day:checked:hover {
+    background-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+.opb-transparent .calendar .calendar-day.calendar-today:selected,
+.opb-transparent.calendar .calendar-day.calendar-today:selected,
+.opb-transparent .calendar .calendar-day.calendar-today:checked,
+.opb-transparent.calendar .calendar-day.calendar-today:checked {
+    color: #ffffff !important;
+    background-color: #3584e4 !important;
+    color: -st-accent-fg-color !important;
+}
+
+.opb-transparent .calendar .calendar-day.calendar-today:hover,
+.opb-transparent.calendar .calendar-day.calendar-today:hover,
+.opb-transparent .calendar .calendar-day.calendar-today:checked:hover,
+.opb-transparent.calendar .calendar-day.calendar-today:checked:hover,
+.opb-transparent .calendar .calendar-day.calendar-today:selected:hover,
+.opb-transparent.calendar .calendar-day.calendar-today:selected:hover {
+    color: #ffffff !important;
+    background-color: #468ee6 !important;
+}
+
+.opb-transparent .calendar .calendar-day.calendar-today:active,
+.opb-transparent.calendar .calendar-day.calendar-today:active,
+.opb-transparent .calendar .calendar-day.calendar-today:checked:active,
+.opb-transparent.calendar .calendar-day.calendar-today:checked:active,
+.opb-transparent .calendar .calendar-day.calendar-today:selected:active,
+.opb-transparent.calendar .calendar-day.calendar-today:selected:active {
+    color: #ffffff !important;
+    background-color: #5d9ce9 !important;
+}
+
+.opb-transparent .calendar .calendar-day.calendar-today:focus,
+.opb-transparent.calendar .calendar-day.calendar-today:focus,
+.opb-transparent .calendar .calendar-day.calendar-today:checked:focus,
+.opb-transparent.calendar .calendar-day.calendar-today:checked:focus {
+    background-color: #3986e4 !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent .calendar .calendar-day.calendar-today:selected:focus,
+.opb-transparent.calendar .calendar-day.calendar-today:selected:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent StEntry {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.opb-transparent StEntry:focus {
+    color: rgba(255, 255, 255, 0.9) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent StEntry:insensitive {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.opb-transparent StEntry StLabel.hint-text {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.opb-transparent .quick-settings .quick-slider,
+.opb-transparent.quick-settings .quick-slider,
+.opb-transparent .quick-settings .quick-slider:hover,
+.opb-transparent.quick-settings .quick-slider:hover,
+.opb-transparent .quick-settings .quick-slider:focus,
+.opb-transparent.quick-settings .quick-slider:focus,
+.opb-transparent .quick-settings .quick-slider:active,
+.opb-transparent.quick-settings .quick-slider:active,
+.opb-transparent .quick-settings .quick-slider:checked,
+.opb-transparent.quick-settings .quick-slider:checked,
+.opb-transparent .quick-slider .slider-bin,
+.opb-transparent.quick-slider .slider-bin,
+.opb-transparent .quick-slider .slider-bin:hover,
+.opb-transparent.quick-slider .slider-bin:hover,
+.opb-transparent .quick-slider .slider-bin:focus,
+.opb-transparent.quick-slider .slider-bin:focus,
+.opb-transparent .quick-slider .icon-button,
+.opb-transparent.quick-slider .icon-button,
+.opb-transparent .quick-slider .button,
+.opb-transparent.quick-slider .button {
+    background-color: transparent !important;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.opb-transparent .quick-slider .icon-button:hover,
+.opb-transparent.quick-slider .icon-button:hover,
+.opb-transparent .quick-slider .button:hover,
+.opb-transparent.quick-slider .button:hover {
+    background-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+.opb-transparent .quick-settings .quick-slider:focus,
+.opb-transparent.quick-settings .quick-slider:focus,
+.opb-transparent .quick-slider .slider-bin:focus,
+.opb-transparent.quick-slider .slider-bin:focus,
+.opb-transparent .quick-slider .icon-button:focus,
+.opb-transparent.quick-slider .icon-button:focus,
+.opb-transparent .quick-slider .button:focus,
+.opb-transparent.quick-slider .button:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}
+
+.opb-transparent .quick-slider .icon-button:active,
+.opb-transparent.quick-slider .icon-button:active,
+.opb-transparent .quick-slider .button:active,
+.opb-transparent.quick-slider .button:active {
+    background-color: rgba(255, 255, 255, 0.19) !important;
+}
+
+.opb-transparent .popup-menu-item,
+.opb-transparent.popup-menu-item,
+.opb-transparent .popup-menu-item:hover,
+.opb-transparent.popup-menu-item:hover,
+.opb-transparent .popup-menu-item:focus,
+.opb-transparent.popup-menu-item:focus,
+.opb-transparent .popup-menu-item:selected,
+.opb-transparent.popup-menu-item:selected,
+.opb-transparent .popup-menu-item:active,
+.opb-transparent.popup-menu-item:active,
+.opb-transparent .popup-menu-item:checked,
+.opb-transparent.popup-menu-item:checked {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.opb-transparent .popup-menu-item:insensitive,
+.opb-transparent.popup-menu-item:insensitive,
+.opb-transparent .popup-inactive-menu-item:insensitive,
+.opb-transparent.popup-inactive-menu-item:insensitive {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.opb-transparent .popup-menu-item:hover,
+.opb-transparent.popup-menu-item:hover,
+.opb-transparent .popup-menu-item:focus,
+.opb-transparent.popup-menu-item:focus {
+    background-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+.opb-transparent .popup-menu-item:active,
+.opb-transparent.popup-menu-item:active,
+.opb-transparent .popup-menu-item:open,
+.opb-transparent.popup-menu-item:open,
+.opb-transparent .popup-menu-item:checked,
+.opb-transparent.popup-menu-item:checked {
+    background-color: rgba(255, 255, 255, 0.19) !important;
+}
+
+/* Foreground sheets remain opaque, including Quick Settings Tweaks overlays.
+ * Keep this AFTER the borrowed rules. The higher specificity also protects
+ * sheets nested inside an Overview-styled Quick Settings popup.
  */
 .opb-active .quick-toggle-menu,
-.opb-active .quick-toggle-menu.opb-transparent {
+.opb-active .quick-toggle-menu.opb-transparent,
+.opb-active .opb-transparent .quick-toggle-menu {
     background: #2e2e32 !important;
     border-color: rgba(255, 255, 255, 0.08);
 }

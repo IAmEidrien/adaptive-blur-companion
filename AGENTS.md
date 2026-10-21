@@ -7,7 +7,8 @@ Preserve GPL-3.0-only and Blur my Shell attribution. Keep root installation layo
   inactive on unsupported versions. Do not patch BMS methods, mutate its surfaces
   map, modify its saved settings, or add per-frame/permanent polling.
 - Activate only with BMS enabled, popup blur enabled, and Override background OFF.
-- Transparency only in Overview and only on registered blur targets. Quick
+- BMS dark tint and descendant styling only in Overview, scoped to registered
+  blur targets. Preserve theme toggle/arrow accents and GNOME 46 color fallbacks. Quick
   Settings submenus, including QST overlays, remain opaque in both states.
 - Only remove style classes we own. Never overwrite inline styles or geometry.
 - Native MessageTray Source title must match the extension name; use GNOME 46
