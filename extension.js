@@ -1,22 +1,25 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import GLib from 'gi://GLib';
+import Gio from 'gi://Gio';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as MessageTray from 'resource:///org/gnome/shell/ui/messageTray.js';
 import {BackgroundPolicy, BMS_UUID, dependency} from './policy.js';
+import {PipelineController, resolveScheme} from './pipelines.js';
+import {BmsPipelineStore, unpack} from './bms-settings.js';
 
 const MESSAGES = {
     missing: ['Blur my Shell is not enabled',
-        'Enable Blur my Shell and its Popups blur to use Dynamic Overview Popup Backgrounds.'],
+        'Enable Blur my Shell and its Popups blur to use the companion’s pop-up effect.'],
     unsupported: ['Popup integration is unavailable',
         'This Blur my Shell version does not expose the supported modern popup component. No backgrounds have been changed.'],
     'blur-off': ['Enable popup blur',
-        'Enable Popups blur in Blur my Shell. Dynamic Overview Popup Backgrounds will activate automatically.'],
+        'Enable Popups blur in Blur my Shell. The pop-up effect will activate automatically.'],
     conflict: ['Disable “Override background” in Blur my Shell',
-        'In Blur my Shell → Popups, turn off Override background. Dynamic Overview Popup Backgrounds is inactive until you do; your settings will not be changed automatically.'],
+        'In Blur my Shell → Popups, turn off Override background. The companion’s pop-up effect is inactive until you do; this setting will not be changed automatically.'],
 };
 
-export default class OverviewPopupBackgrounds extends Extension {
+export default class AdaptiveBlurCompanion extends Extension {
     enable() {
         this._enabled = true;
         this._signals = [];
@@ -26,8 +29,25 @@ export default class OverviewPopupBackgrounds extends Extension {
         this._settleId = 0;
         this._source = null;
         this._lastWarning = null;
+        this._ownSettings = this.getSettings();
+        this._appearance = new Gio.Settings({schema_id: 'org.gnome.desktop.interface'});
+        this._scheme = resolveScheme(this._appearance.get_string('color-scheme'));
         this._overview = Main.overview.visible;
         this._policy = new BackgroundPolicy(Main.uiGroup);
+        this._connect(this._appearance, 'changed::color-scheme', () => {
+            this._scheme = resolveScheme(this._appearance.get_string('color-scheme'));
+            this._sync();
+            this._applyAuto();
+        });
+        this._connect(this._ownSettings, 'changed::popup-backgrounds-enabled', () => {
+            this._sync();
+            this._settle();
+        });
+        this._connect(this._ownSettings, 'changed::scheme-pipelines-enabled', () => this._applyAuto());
+        this._connect(this._ownSettings, 'changed::pipeline-request', () => {
+            const mode = this._ownSettings.get_string('pipeline-request').split(':').at(-1);
+            this._applyPipelines(mode);
+        });
         this._connect(Main.overview, 'showing', () => {
             this._overview = true;
             this._sync();
@@ -45,6 +65,7 @@ export default class OverviewPopupBackgrounds extends Extension {
                 this._policy.clear();
             this._queue();
             this._settle();
+            if (info.state === 1) this._applyAuto();
         });
         // BMS adds each blur surface to one of these groups. Observe additions,
         // not the full actor tree, and coalesce them after BMS registers its map.
@@ -63,6 +84,34 @@ export default class OverviewPopupBackgrounds extends Extension {
         });
         this._queue();
         this._settle();
+        this._applyAuto();
+    }
+
+    _applyAuto() {
+        if (this._ownSettings.get_boolean('scheme-pipelines-enabled'))
+            this._applyPipelines(this._scheme);
+    }
+
+    _applyPipelines(mode) {
+        try {
+            const info = Main.extensionManager.lookup(BMS_UUID);
+            if (info?.state !== 1)
+                throw new Error('Enable Blur my Shell to apply pipelines');
+            const store = new BmsPipelineStore(info.stateObj?._settings?.settings);
+            const undo = {
+                read: () => unpack(this._ownSettings.get_value('revert-pipelines')),
+                write: value => this._ownSettings.set_value('revert-pipelines', new GLib.Variant('a{ss}', value)),
+            };
+            const controller = new PipelineController(store, undo);
+            const result = mode === 'revert' ? controller.revert()
+                : controller.apply(mode, unpack(this._ownSettings.get_value('scheme-pipelines')));
+            const text = mode === 'revert' ? `Reverted ${result.changed} pipeline selection(s).`
+                : result.changed ? `Applied ${mode} pipelines to ${result.changed} component(s).`
+                    : `No pipeline selections changed for ${mode} style.`;
+            this._ownSettings.set_string('pipeline-result', text);
+        } catch (error) {
+            this._ownSettings.set_string('pipeline-result', `Error: ${error.message}`);
+        }
     }
 
     _connect(object, signal, callback) {
@@ -114,6 +163,14 @@ export default class OverviewPopupBackgrounds extends Extension {
         if (!this._enabled)
             return;
         try {
+            if (!this._ownSettings.get_boolean('popup-backgrounds-enabled')) {
+                this._policy.clear();
+                this._bindSettings(null);
+                this._source?.destroy(MessageTray.NotificationDestroyedReason.SOURCE_CLOSED);
+                this._source = null;
+                this._lastWarning = null;
+                return;
+            }
             const info = Main.extensionManager.lookup(BMS_UUID);
             const state = dependency(info);
             this._bindSettings(state.settings);
@@ -124,6 +181,7 @@ export default class OverviewPopupBackgrounds extends Extension {
                 return;
             }
             this._policy.apply(state.component.surfaces, this._overview);
+            this._policy.setLightStyle(this._scheme === 'light');
             this._lastWarning = null;
             this._source?.destroy(MessageTray.NotificationDestroyedReason.SOURCE_CLOSED);
             this._source = null;
@@ -180,5 +238,6 @@ export default class OverviewPopupBackgrounds extends Extension {
         this._source?.destroy(MessageTray.NotificationDestroyedReason.SOURCE_CLOSED);
         this._source = null;
         this._lastWarning = null;
+        this._ownSettings = this._appearance = null;
     }
 }

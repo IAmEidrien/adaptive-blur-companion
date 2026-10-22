@@ -1,0 +1,240 @@
+/* GNOME Shell 46 — dark Adwaita blue
+ * Install as gnome-shell.css in a User Themes gnome-shell/ directory.
+ * Palette from libadwaita's tinted dark appearance:
+ * view #1d1d20, window #222226, header #2e2e32,
+ * dialog/popover #36363a, raised #39393d, blue #3584e4/#62a0ea.
+ * Leave overview and dock backgrounds to Blur My Shell and Dash-to-Dock.
+ */
+
+stage { color: #ffffff; }
+
+/* Preserve the existing solid 40px panel, including during Overview. */
+#panel, #panel:overview {
+    background-color: #222226;
+    color: #ffffff;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#panel .panel-button { color: #ffffff; font-weight: bold; }
+#panel .panel-button:hover, #panel .panel-button:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+#panel .panel-button:checked, #panel .panel-button:active {
+    background-color: rgba(53, 132, 228, 0.28);
+}
+
+/* IconGrid.BaseIcon's label is an unclassed StLabel in GNOME 46. App and
+ * folder tiles share the quieter 90%-opaque white, while the opened folder
+ * heading below stays fully white. Never force actor opacity: folder preview
+ * animations deliberately hide labels while moving. */
+.icon-grid .overview-tile .overview-icon-with-label StLabel,
+.app-folder-dialog .overview-tile .overview-icon-with-label StLabel {
+    color: rgba(255, 255, 255, 0.80);
+    font-weight: bold;
+    text-shadow: none;
+}
+.grid-search-result .overview-icon-with-label StLabel {
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: none;
+}
+.icon-grid .overview-tile,
+.app-folder-dialog .overview-tile,
+.grid-search-result { color: #ffffff; }
+.icon-grid .overview-tile:hover,
+.app-folder-dialog .overview-tile:hover,
+.grid-search-result:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+.icon-grid .overview-tile:focus,
+.icon-grid .overview-tile:selected,
+.app-folder-dialog .overview-tile:focus,
+.grid-search-result:focus {
+    background-color: rgba(53, 132, 228, 0.28);
+}
+.app-folder-dialog {
+    background-color: #36363a;
+    color: #ffffff;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.app-folder-dialog .folder-name-label,
+.app-folder-dialog .folder-name-entry { color: #ffffff; font-weight: bold; }
+.app-grid-running-dot, .page-indicator-icon { background-color: #ffffff; }
+
+/* Search entry and results. */
+#searchEntry, .search-entry {
+    background-color: #36363a;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: none;
+}
+#searchEntry:hover, .search-entry:hover,
+#searchEntry:focus, .search-entry:focus { background-color: #39393d; }
+#searchEntry:focus, .search-entry:focus {
+    border-color: #3584e4;
+    box-shadow: inset 0 0 0 1px rgba(53, 132, 228, 0.55);
+}
+.search-section-content { background-color: #36363a; color: #ffffff; }
+.search-provider-icon, .list-search-result { color: #ffffff; }
+.search-provider-icon:hover, .list-search-result:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+.search-provider-icon:focus, .list-search-result:focus {
+    background-color: rgba(53, 132, 228, 0.28);
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.55);
+}
+.search-statustext, .list-search-result-description { color: #deddda; }
+
+/* Panel and extension popovers. Paint the content surface, not the arrow,
+ * wrapper or every child. The old catch-all transparent rule erased menus. */
+.popup-menu, .popup-menu-item, .popup-inactive-menu-item { color: #ffffff; }
+.popup-menu-content, .candidate-popup-content {
+    background-color: #36363a;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 3px 12px rgba(0, 0, 6, 0.35);
+}
+.popup-menu-item:hover, .popup-menu-item:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+.popup-menu-item:checked, .popup-menu-item:active {
+    background-color: rgba(53, 132, 228, 0.28);
+    color: #ffffff;
+}
+.popup-sub-menu { background-color: #2e2e32; color: #ffffff; }
+.popup-separator-menu-item .popup-separator-menu-item-separator {
+    background-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Quick Settings: toggle and arrow are separate controls inside one
+ * popover; avoid an extra opaque card behind the entire menu. */
+.quick-settings, .quick-settings-system-item { color: #ffffff; }
+.quick-toggle,
+.quick-menu-toggle .quick-toggle,
+.quick-menu-toggle .quick-toggle-arrow {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+.quick-toggle:hover,
+.quick-menu-toggle .quick-toggle:hover,
+.quick-menu-toggle .quick-toggle-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.quick-toggle:checked,
+.quick-menu-toggle .quick-toggle:checked,
+.quick-menu-toggle .quick-toggle-arrow:checked {
+    background-color: #3584e4;
+    color: #ffffff;
+}
+.quick-toggle:checked:hover,
+.quick-menu-toggle .quick-toggle:checked:hover,
+.quick-menu-toggle .quick-toggle-arrow:checked:hover {
+    background-color: #62a0ea;
+}
+.quick-toggle-title { color: #ffffff; font-weight: bold; }
+.quick-toggle-subtitle, .device-subtitle,
+.background-app-item .subtitle { color: #deddda; }
+.quick-toggle:checked .quick-toggle-subtitle { color: #ffffff; }
+.quick-toggle-menu { background-color: #2e2e32; color: #ffffff; }
+.slider, .level {
+    -barlevel-background-color: rgba(255, 255, 255, 0.20);
+    -barlevel-active-background-color: #3584e4;
+    -barlevel-overdrive-color: #ff938c;
+}
+
+/* Calendar and notifications: nested cards on one popover backdrop. */
+.datemenu-today-button, .calendar,
+.events-button, .world-clocks-button, .weather-button,
+.message, .notification-banner {
+    background-color: #36363a;
+    color: #ffffff;
+}
+.datemenu-today-button:hover, .events-button:hover,
+.world-clocks-button:hover, .weather-button:hover,
+.message:hover { background-color: #39393d; }
+.calendar-month-label, .calendar-day,
+.calendar-day-heading { color: #ffffff; font-weight: bold; }
+.calendar-day:hover, .calendar-day:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+.calendar-day.calendar-today { background-color: #3584e4; color: #ffffff; }
+.calendar-day.calendar-other-month, .message-header,
+.events-title, .event-time,
+.message-secondary-bin, .message-list-placeholder { color: #deddda; }
+.message .message-header .message-source-title { color: #ffffff; }
+.notification-button,
+.message .message-header .message-expand-button,
+.message .message-header .message-close-button {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+.notification-button:hover,
+.message .message-header .message-expand-button:hover,
+.message .message-header .message-close-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Dialogs, entries, keyboard. Leave login/lock screen backdrops untouched. */
+.modal-dialog, .prompt-dialog, .end-session-dialog,
+.run-dialog, .polkit-dialog {
+    background-color: #36363a;
+    color: #ffffff;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.modal-dialog-linked-button, .dialog-button {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+.modal-dialog-linked-button:hover, .dialog-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.modal-dialog-linked-button:default, .dialog-button:default {
+    background-color: #3584e4;
+    color: #ffffff;
+}
+StEntry, .login-dialog-prompt-entry, .prompt-dialog-password-entry {
+    background-color: #1d1d20;
+    color: #ffffff;
+    caret-color: #62a0ea;
+    selection-background-color: #3584e4;
+    selected-color: #ffffff;
+}
+StEntry:focus, .login-dialog-prompt-entry:focus,
+.prompt-dialog-password-entry:focus { border-color: #3584e4; }
+#keyboard, .keyboard-subkeys { background-color: #222226; }
+.keyboard-key { background-color: #36363a; color: #ffffff; }
+.keyboard-key:hover, .keyboard-key:focus { background-color: #39393d; }
+.keyboard-key:checked, .keyboard-key:latched {
+    background-color: #3584e4;
+    color: #ffffff;
+}
+
+/* Switchers and OSD, keeping Blur My Shell's overview separate. */
+.osd-window, .switcher-list, .workspace-switcher, .resize-popup {
+    background-color: rgba(54, 54, 58, 0.96);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.osd-window StLabel, .window-caption { color: #ffffff; font-weight: bold; }
+.window-caption { background-color: rgba(54, 54, 58, 0.96); }
+.switcher-list .item-box:selected, .workspace-thumbnail-indicator {
+    background-color: rgba(53, 132, 228, 0.28);
+    border-color: #3584e4;
+}
+.window-close { background-color: #39393d; color: #ffffff; }
+.window-close:hover { background-color: #454549; }
+.popup-menu-item:insensitive, .button:insensitive,
+.keyboard-key:insensitive { color: #9a9996; }
+
+/* Keep Quick Settings overlay submenus opaque. */
+.quick-settings .quick-toggle-menu,
+.quick-toggle-menu-container .quick-toggle-menu {
+    background-color: #2e2e32 !important;
+}
+
+/* Hide the city name in the clock menu’s weather widget for privacy reasons */
+.weather-button .weather-header.location {
+    display: none
+}

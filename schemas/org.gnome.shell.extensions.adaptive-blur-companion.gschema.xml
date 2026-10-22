@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.adaptive-blur-companion" path="/org/gnome/shell/extensions/adaptive-blur-companion/">
+    <key name="popup-backgrounds-enabled" type="b"><default>true</default><summary>Adapt popup backgrounds to Overview and appearance</summary></key>
+    <key name="scheme-pipelines-enabled" type="b"><default>false</default><summary>Apply configured pipelines on appearance changes</summary></key>
+    <key name="scheme-pipelines" type="a{sa{ss}}"><default>{}</default><summary>Component pipeline IDs for light and dark appearance</summary></key>
+    <key name="revert-pipelines" type="a{ss}"><default>{}</default><summary>Previous selections from the last application, one level only</summary></key>
+    <key name="pipeline-request" type="s"><default>''</default><summary>Unique manual apply or revert request</summary></key>
+    <key name="pipeline-result" type="s"><default>''</default><summary>Result of the most recent pipeline request</summary></key>
+  </schema>
+</schemalist>

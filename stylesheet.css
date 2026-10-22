@@ -617,7 +617,6 @@
 .opb-transparent.calendar-day.calendar-today {
     color: rgba(255, 255, 255, 0.9) !important;
     background-color: #3584e4 !important;
-    color: -st-accent-fg-color !important;
 }
 
 .opb-transparent .calendar .calendar-day:hover,
@@ -672,7 +671,6 @@
 .opb-transparent.calendar .calendar-day.calendar-today:checked {
     color: #ffffff !important;
     background-color: #3584e4 !important;
-    color: -st-accent-fg-color !important;
 }
 
 .opb-transparent .calendar .calendar-day.calendar-today:hover,
@@ -826,4 +824,637 @@
 .opb-active .opb-transparent .quick-toggle-menu {
     background: #2e2e32 !important;
     border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Light style: BMS light surface tint, dark ink, opaque foreground sheets. */
+.abc-light .opb-transparent {
+    background: rgba(255, 255, 255, 0.65) !important;
+    border-color: rgba(0, 0, 0, 0.06);
+}.abc-light .opb-transparent .popup-menu-content,
+.abc-light .opb-transparent.popup-menu-content,
+.abc-light .opb-transparent .popup-sub-menu,
+.abc-light .opb-transparent.popup-sub-menu,
+.abc-light .opb-transparent .candidate-popup-content,
+.abc-light .opb-transparent.candidate-popup-content,
+.abc-light .opb-transparent .quick-settings,
+.abc-light .opb-transparent.quick-settings,
+.abc-light .opb-transparent .quick-toggle-menu,
+.abc-light .opb-transparent.quick-toggle-menu,
+.abc-light .opb-transparent .message,
+.abc-light .opb-transparent.message,
+.abc-light .opb-transparent .osd-window,
+.abc-light .opb-transparent.osd-window,
+.abc-light .opb-transparent .resize-popup,
+.abc-light .opb-transparent.resize-popup,
+.abc-light .opb-transparent .switcher-list,
+.abc-light .opb-transparent.switcher-list,
+.abc-light .opb-transparent .workspace-switcher,
+.abc-light .opb-transparent.workspace-switcher,
+.abc-light .opb-transparent .modal-dialog,
+.abc-light .opb-transparent.modal-dialog,
+.abc-light .opb-transparent .run-dialog,
+.abc-light .opb-transparent.run-dialog,
+.abc-light .opb-transparent .clipboard-dialog,
+.abc-light .opb-transparent.clipboard-dialog,
+.abc-light .opb-transparent .screenshot-ui-panel,
+.abc-light .opb-transparent.screenshot-ui-panel {
+    color: rgba(0, 0, 0, 0.9);
+}.abc-light .opb-transparent .popup-menu-content,
+.abc-light .opb-transparent.popup-menu-content,
+.abc-light .opb-transparent .popup-sub-menu,
+.abc-light .opb-transparent.popup-sub-menu,
+.abc-light .opb-transparent .candidate-popup-content,
+.abc-light .opb-transparent.candidate-popup-content,
+.abc-light .opb-transparent .quick-settings,
+.abc-light .opb-transparent.quick-settings,
+.abc-light .opb-transparent .osd-window,
+.abc-light .opb-transparent.osd-window,
+.abc-light .opb-transparent .resize-popup,
+.abc-light .opb-transparent.resize-popup,
+.abc-light .opb-transparent .switcher-list,
+.abc-light .opb-transparent.switcher-list,
+.abc-light .opb-transparent .workspace-switcher,
+.abc-light .opb-transparent.workspace-switcher,
+.abc-light .opb-transparent .message,
+.abc-light .opb-transparent.message,
+.abc-light .opb-transparent .modal-dialog,
+.abc-light .opb-transparent.modal-dialog,
+.abc-light .opb-transparent .run-dialog,
+.abc-light .opb-transparent.run-dialog,
+.abc-light .opb-transparent .clipboard-dialog,
+.abc-light .opb-transparent.clipboard-dialog,
+.abc-light .opb-transparent .screenshot-ui-panel,
+.abc-light .opb-transparent.screenshot-ui-panel {
+    background: rgba(255, 255, 255, 0.65) !important;
+    border-color: rgba(0, 0, 0, 0.06);
+}.abc-light .opb-transparent .quick-toggle-menu,
+.abc-light .opb-transparent.quick-toggle-menu {
+    background: rgba(0, 0, 0, 0.08) !important;
+    border-color: rgba(0, 0, 0, 0.06);
+}.abc-light .opb-transparent .modal-dialog,
+.abc-light .opb-transparent.modal-dialog,
+.abc-light .opb-transparent .run-dialog,
+.abc-light .opb-transparent.run-dialog,
+.abc-light .opb-transparent .clipboard-dialog,
+.abc-light .opb-transparent.clipboard-dialog {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}.abc-light .opb-transparent .message-list .message,
+.abc-light .opb-transparent.message-list .message {
+    background: rgba(255, 255, 255, 0.58) !important;
+    border-color: rgba(0, 0, 0, 0.05);
+}.abc-light .opb-transparent .message-list .message:hover,
+.abc-light .opb-transparent.message-list .message:hover {
+    background: rgba(0, 0, 0, 0.12) !important;
+}.abc-light .opb-transparent .message-list .message:focus,
+.abc-light .opb-transparent.message-list .message:focus,
+.abc-light .opb-transparent .message-list .message:active,
+.abc-light .opb-transparent.message-list .message:active {
+    background: rgba(0, 0, 0, 0.15) !important;
+}.abc-light .opb-transparent StScrollBar StBin#trough {
+    background-color: transparent;
+}.abc-light .opb-transparent StScrollBar > .vhandle,
+.abc-light .opb-transparent StScrollBar > .hhandle {
+    background-color: rgba(0, 0, 0, 0.28);
+    border-color: transparent;
+}.abc-light .opb-transparent StScrollBar > .vhandle:hover,
+.abc-light .opb-transparent StScrollBar > .hhandle:hover {
+    background-color: rgba(0, 0, 0, 0.38);
+}.abc-light .opb-transparent StScrollBar > .vhandle:active,
+.abc-light .opb-transparent StScrollBar > .hhandle:active {
+    background-color: rgba(0, 0, 0, 0.46);
+}.abc-light .opb-transparent .osd-window,
+.abc-light .opb-transparent.osd-window,
+.abc-light .opb-transparent .resize-popup,
+.abc-light .opb-transparent.resize-popup,
+.abc-light .opb-transparent .workspace-switcher,
+.abc-light .opb-transparent.workspace-switcher {
+    border-radius: 18px;
+}.abc-light .opb-transparent .osd-window .level,
+.abc-light .opb-transparent.osd-window .level {
+    -barlevel-background-color: rgba(0, 0, 0, 0.14);
+    -barlevel-active-background-color: #ffffff;
+    -barlevel-overdrive-color: #f66151;
+}.abc-light .opb-transparent .switcher-list .item-box:focus,
+.abc-light .opb-transparent.switcher-list .item-box:focus,
+.abc-light .opb-transparent .switcher-list .item-box:selected,
+.abc-light .opb-transparent.switcher-list .item-box:selected {
+    background-color: rgba(0, 0, 0, 0.13) !important;
+}.abc-light .opb-transparent .popup-sub-menu,
+.abc-light .opb-transparent.popup-sub-menu {
+    background: transparent !important;
+    border-color: transparent;
+    border-radius: 0 0 13px 13px;
+}.abc-light .opb-transparent .popup-sub-menu > StBoxLayout,
+.abc-light .opb-transparent.popup-sub-menu > StBoxLayout {
+    background-color: rgba(0, 0, 0, 0.11) !important;
+    border-radius: 0 0 13px 13px;
+}.abc-light .opb-transparent .popup-sub-menu .popup-menu-item,
+.abc-light .opb-transparent.popup-sub-menu .popup-menu-item {
+    background-color: transparent !important;
+    border-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}.abc-light .opb-transparent .popup-sub-menu .popup-menu-item:insensitive,
+.abc-light .opb-transparent.popup-sub-menu .popup-menu-item:insensitive {
+    background-color: transparent !important;
+}.abc-light .opb-transparent .screenshot-ui-type-button,
+.abc-light .opb-transparent.screenshot-ui-type-button,
+.abc-light .opb-transparent .screenshot-ui-type-button:insensitive,
+.abc-light .opb-transparent.screenshot-ui-type-button:insensitive {
+    background-color: transparent !important;
+}.abc-light .opb-transparent .screenshot-ui-type-button:checked,
+.abc-light .opb-transparent.screenshot-ui-type-button:checked,
+.abc-light .opb-transparent .screenshot-ui-type-button:focus,
+.abc-light .opb-transparent.screenshot-ui-type-button:focus {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}.abc-light .opb-transparent .screenshot-ui-type-button:focus,
+.abc-light .opb-transparent.screenshot-ui-type-button:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent .screenshot-ui-type-button:hover,
+.abc-light .opb-transparent.screenshot-ui-type-button:hover {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+}.abc-light .opb-transparent .screenshot-ui-type-button:active,
+.abc-light .opb-transparent.screenshot-ui-type-button:active,
+.abc-light .opb-transparent .screenshot-ui-type-button:outlined,
+.abc-light .opb-transparent.screenshot-ui-type-button:outlined {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}.abc-light .opb-transparent .screenshot-ui-show-pointer-button,
+.abc-light .opb-transparent.screenshot-ui-show-pointer-button,
+.abc-light .opb-transparent .screenshot-ui-show-pointer-button:insensitive,
+.abc-light .opb-transparent.screenshot-ui-show-pointer-button:insensitive {
+    background-color: transparent !important;
+}.abc-light .opb-transparent .screenshot-ui-show-pointer-button:checked,
+.abc-light .opb-transparent.screenshot-ui-show-pointer-button:checked,
+.abc-light .opb-transparent .screenshot-ui-show-pointer-button:focus,
+.abc-light .opb-transparent.screenshot-ui-show-pointer-button:focus {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}.abc-light .opb-transparent .screenshot-ui-show-pointer-button:hover,
+.abc-light .opb-transparent.screenshot-ui-show-pointer-button:hover {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+}.abc-light .opb-transparent .screenshot-ui-show-pointer-button:active,
+.abc-light .opb-transparent.screenshot-ui-show-pointer-button:active,
+.abc-light .opb-transparent .screenshot-ui-show-pointer-button:outlined,
+.abc-light .opb-transparent.screenshot-ui-show-pointer-button:outlined {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}.abc-light .opb-transparent .screenshot-ui-shot-cast-container,
+.abc-light .opb-transparent.screenshot-ui-shot-cast-container {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}.abc-light .opb-transparent .screenshot-ui-shot-cast-button:hover,
+.abc-light .opb-transparent.screenshot-ui-shot-cast-button:hover,
+.abc-light .opb-transparent .screenshot-ui-shot-cast-button:focus,
+.abc-light .opb-transparent.screenshot-ui-shot-cast-button:focus {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+}.abc-light .opb-transparent .screenshot-ui-shot-cast-button:active,
+.abc-light .opb-transparent.screenshot-ui-shot-cast-button:active {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}.abc-light .opb-transparent .screenshot-ui-shot-cast-button:checked,
+.abc-light .opb-transparent.screenshot-ui-shot-cast-button:checked {
+    background-color: #ffffff !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+}.abc-light .opb-transparent .popup-sub-menu .popup-menu-section,
+.abc-light .opb-transparent.popup-sub-menu .popup-menu-section {
+    border-radius: 0 0 12px 12px;
+}.abc-light .opb-transparent .popup-sub-menu .popup-menu-item:last-child,
+.abc-light .opb-transparent.popup-sub-menu .popup-menu-item:last-child,
+.abc-light .opb-transparent .popup-sub-menu .popup-menu-section .popup-menu-item:last-child,
+.abc-light .opb-transparent.popup-sub-menu .popup-menu-section .popup-menu-item:last-child,
+.abc-light .opb-transparent .popup-sub-menu .popup-menu-section:last-child .popup-menu-item:last-child,
+.abc-light .opb-transparent.popup-sub-menu .popup-menu-section:last-child .popup-menu-item:last-child {
+    border-radius: 0 0 12px 12px;
+}.abc-light .opb-transparent .bms-keyboard-surface,
+.abc-light .opb-transparent.bms-keyboard-surface {
+    background: rgba(255, 255, 255, 0.65) !important;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}.abc-light .opb-transparent .message:second-in-stack,
+.abc-light .opb-transparent.message:second-in-stack {
+    background: rgba(0, 0, 0, 0.05) !important;
+}.abc-light .opb-transparent .message:lower-in-stack,
+.abc-light .opb-transparent.message:lower-in-stack {
+    background: rgba(0, 0, 0, 0.02) !important;
+}.abc-light .opb-transparent .message-media-control,
+.abc-light .opb-transparent.message-media-control {
+    color: rgba(0, 0, 0, 0.9) !important;
+    background-color: transparent;
+}.abc-light .opb-transparent .message-media-control:hover,
+.abc-light .opb-transparent.message-media-control:hover,
+.abc-light .opb-transparent .message-expand-button:hover,
+.abc-light .opb-transparent.message-expand-button:hover,
+.abc-light .opb-transparent .switcher-list .item-box:hover,
+.abc-light .opb-transparent.switcher-list .item-box:hover {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+}.abc-light .opb-transparent .message-media-control:active,
+.abc-light .opb-transparent.message-media-control:active,
+.abc-light .opb-transparent .message-expand-button:active,
+.abc-light .opb-transparent.message-expand-button:active,
+.abc-light .opb-transparent .switcher-list .item-box:active,
+.abc-light .opb-transparent.switcher-list .item-box:active {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}.abc-light .opb-transparent .message-media-control:focus,
+.abc-light .opb-transparent.message-media-control:focus,
+.abc-light .opb-transparent .message-media-control:checked,
+.abc-light .opb-transparent.message-media-control:checked,
+.abc-light .opb-transparent .message-expand-button:focus,
+.abc-light .opb-transparent.message-expand-button:focus,
+.abc-light .opb-transparent .message-expand-button:checked,
+.abc-light .opb-transparent.message-expand-button:checked {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}.abc-light .opb-transparent .message-media-control:insensitive,
+.abc-light .opb-transparent.message-media-control:insensitive {
+    color: rgba(0, 0, 0, 0.5) !important;
+}.abc-light .opb-transparent .message .message-header,
+.abc-light .opb-transparent.message .message-header,
+.abc-light .opb-transparent .message .message-header .message-header-content .event-time,
+.abc-light .opb-transparent.message .message-header .message-header-content .event-time,
+.abc-light .opb-transparent .message .message-header .message-header-content .message-source-title,
+.abc-light .opb-transparent.message .message-header .message-header-content .message-source-title {
+    color: rgba(0, 0, 0, 0.68);
+}.abc-light .opb-transparent .message .message-box .message-content .message-title,
+.abc-light .opb-transparent.message .message-box .message-content .message-title {
+    color: rgba(0, 0, 0, 0.9);
+}.abc-light .opb-transparent .message .message-header .message-source-icon,
+.abc-light .opb-transparent.message .message-header .message-source-icon {
+    color: rgba(0, 0, 0, 0.68);
+}.abc-light .opb-transparent .notification-button,
+.abc-light .opb-transparent.notification-button,
+.abc-light .opb-transparent .message .message-header .message-expand-button,
+.abc-light .opb-transparent.message .message-header .message-expand-button,
+.abc-light .opb-transparent .message .message-header .message-close-button,
+.abc-light .opb-transparent.message .message-header .message-close-button,
+.abc-light .opb-transparent .message-notification-group .message-collapse-button,
+.abc-light .opb-transparent.message-notification-group .message-collapse-button,
+.abc-light .opb-transparent .message-list-controls .message-list-clear-button,
+.abc-light .opb-transparent.message-list-controls .message-list-clear-button,
+.abc-light .opb-transparent .modal-dialog .button,
+.abc-light .opb-transparent.modal-dialog .button,
+.abc-light .opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button,
+.abc-light .opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button,
+.abc-light .opb-transparent .quick-settings .icon-button,
+.abc-light .opb-transparent.quick-settings .icon-button,
+.abc-light .opb-transparent .quick-settings-system-item .button,
+.abc-light .opb-transparent.quick-settings-system-item .button,
+.abc-light .opb-transparent .quick-settings-system-item .icon-button,
+.abc-light .opb-transparent.quick-settings-system-item .icon-button,
+.abc-light .opb-transparent .quick-settings-system-item .power-item,
+.abc-light .opb-transparent.quick-settings-system-item .power-item {
+    color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}.abc-light .opb-transparent .notification-button:hover,
+.abc-light .opb-transparent.notification-button:hover,
+.abc-light .opb-transparent .message .message-header .message-close-button:hover,
+.abc-light .opb-transparent.message .message-header .message-close-button:hover,
+.abc-light .opb-transparent .message .message-header .message-expand-button:hover,
+.abc-light .opb-transparent.message .message-header .message-expand-button:hover,
+.abc-light .opb-transparent .message-notification-group .message-collapse-button:hover,
+.abc-light .opb-transparent.message-notification-group .message-collapse-button:hover,
+.abc-light .opb-transparent .message-list-controls .message-list-clear-button:hover,
+.abc-light .opb-transparent.message-list-controls .message-list-clear-button:hover,
+.abc-light .opb-transparent .message-list-controls .message-list-clear-button:focus,
+.abc-light .opb-transparent.message-list-controls .message-list-clear-button:focus,
+.abc-light .opb-transparent .modal-dialog .button:hover,
+.abc-light .opb-transparent.modal-dialog .button:hover,
+.abc-light .opb-transparent .modal-dialog .button:focus,
+.abc-light .opb-transparent.modal-dialog .button:focus,
+.abc-light .opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:hover,
+.abc-light .opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:hover,
+.abc-light .opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:focus,
+.abc-light .opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:focus,
+.abc-light .opb-transparent .quick-settings .icon-button:hover,
+.abc-light .opb-transparent.quick-settings .icon-button:hover,
+.abc-light .opb-transparent .quick-settings .icon-button:focus,
+.abc-light .opb-transparent.quick-settings .icon-button:focus,
+.abc-light .opb-transparent .quick-settings-system-item .button:hover,
+.abc-light .opb-transparent.quick-settings-system-item .button:hover,
+.abc-light .opb-transparent .quick-settings-system-item .button:focus,
+.abc-light .opb-transparent.quick-settings-system-item .button:focus,
+.abc-light .opb-transparent .quick-settings-system-item .icon-button:hover,
+.abc-light .opb-transparent.quick-settings-system-item .icon-button:hover,
+.abc-light .opb-transparent .quick-settings-system-item .icon-button:focus,
+.abc-light .opb-transparent.quick-settings-system-item .icon-button:focus,
+.abc-light .opb-transparent .quick-settings-system-item .power-item:hover,
+.abc-light .opb-transparent.quick-settings-system-item .power-item:hover,
+.abc-light .opb-transparent .quick-settings-system-item .power-item:focus,
+.abc-light .opb-transparent.quick-settings-system-item .power-item:focus {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+}.abc-light .opb-transparent .message-list-controls .message-list-clear-button:focus,
+.abc-light .opb-transparent.message-list-controls .message-list-clear-button:focus,
+.abc-light .opb-transparent .modal-dialog .button:focus,
+.abc-light .opb-transparent.modal-dialog .button:focus,
+.abc-light .opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:focus,
+.abc-light .opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:focus,
+.abc-light .opb-transparent .quick-settings .icon-button:focus,
+.abc-light .opb-transparent.quick-settings .icon-button:focus,
+.abc-light .opb-transparent .quick-settings-system-item .button:focus,
+.abc-light .opb-transparent.quick-settings-system-item .button:focus,
+.abc-light .opb-transparent .quick-settings-system-item .icon-button:focus,
+.abc-light .opb-transparent.quick-settings-system-item .icon-button:focus,
+.abc-light .opb-transparent .quick-settings-system-item .power-item:focus,
+.abc-light .opb-transparent.quick-settings-system-item .power-item:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent .notification-button:active,
+.abc-light .opb-transparent.notification-button:active,
+.abc-light .opb-transparent .message .message-header .message-expand-button:active,
+.abc-light .opb-transparent.message .message-header .message-expand-button:active,
+.abc-light .opb-transparent .message .message-header .message-close-button:active,
+.abc-light .opb-transparent.message .message-header .message-close-button:active,
+.abc-light .opb-transparent .message-notification-group .message-collapse-button:active,
+.abc-light .opb-transparent.message-notification-group .message-collapse-button:active,
+.abc-light .opb-transparent .message-list-controls .message-list-clear-button:active,
+.abc-light .opb-transparent.message-list-controls .message-list-clear-button:active,
+.abc-light .opb-transparent .modal-dialog .button:active,
+.abc-light .opb-transparent.modal-dialog .button:active,
+.abc-light .opb-transparent .modal-dialog .button:checked,
+.abc-light .opb-transparent.modal-dialog .button:checked,
+.abc-light .opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:active,
+.abc-light .opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:active,
+.abc-light .opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:checked,
+.abc-light .opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:checked,
+.abc-light .opb-transparent .quick-settings .icon-button:active,
+.abc-light .opb-transparent.quick-settings .icon-button:active,
+.abc-light .opb-transparent .quick-settings-system-item .icon-button:active,
+.abc-light .opb-transparent.quick-settings-system-item .icon-button:active,
+.abc-light .opb-transparent .quick-settings-system-item .button:active,
+.abc-light .opb-transparent.quick-settings-system-item .button:active,
+.abc-light .opb-transparent .quick-settings-system-item .power-item:active,
+.abc-light .opb-transparent.quick-settings-system-item .power-item:active {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}.abc-light .opb-transparent .notification-button:insensitive,
+.abc-light .opb-transparent.notification-button:insensitive,
+.abc-light .opb-transparent .message-list-controls .message-list-clear-button:insensitive,
+.abc-light .opb-transparent.message-list-controls .message-list-clear-button:insensitive,
+.abc-light .opb-transparent .modal-dialog .button:insensitive,
+.abc-light .opb-transparent.modal-dialog .button:insensitive,
+.abc-light .opb-transparent .modal-dialog .modal-dialog-button-box .modal-dialog-button:insensitive,
+.abc-light .opb-transparent.modal-dialog .modal-dialog-button-box .modal-dialog-button:insensitive {
+    color: rgba(0, 0, 0, 0.35) !important;
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}.abc-light .opb-transparent .calendar,
+.abc-light .opb-transparent.calendar {
+    color: rgba(0, 0, 0, 0.9);
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}.abc-light .opb-transparent .datemenu-today-button,
+.abc-light .opb-transparent.datemenu-today-button {
+    background-color: transparent !important;
+    box-shadow: none;
+}.abc-light .opb-transparent .datemenu-today-button:hover,
+.abc-light .opb-transparent.datemenu-today-button:hover,
+.abc-light .opb-transparent .datemenu-today-button:focus,
+.abc-light .opb-transparent.datemenu-today-button:focus {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+}.abc-light .opb-transparent .datemenu-today-button:focus,
+.abc-light .opb-transparent.datemenu-today-button:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent .datemenu-today-button:active,
+.abc-light .opb-transparent.datemenu-today-button:active,
+.abc-light .opb-transparent .datemenu-today-button:checked,
+.abc-light .opb-transparent.datemenu-today-button:checked {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}.abc-light .opb-transparent .datemenu-today-button StLabel,
+.abc-light .opb-transparent.datemenu-today-button StLabel,
+.abc-light .opb-transparent .datemenu-today-button .date-label,
+.abc-light .opb-transparent.datemenu-today-button .date-label {
+    color: rgba(0, 0, 0, 0.9) !important;
+}.abc-light .opb-transparent .datemenu-today-button .day-label,
+.abc-light .opb-transparent.datemenu-today-button .day-label {
+    color: rgba(0, 0, 0, 0.68) !important;
+}.abc-light .opb-transparent .events-button,
+.abc-light .opb-transparent.events-button,
+.abc-light .opb-transparent .world-clocks-button,
+.abc-light .opb-transparent.world-clocks-button,
+.abc-light .opb-transparent .weather-button,
+.abc-light .opb-transparent.weather-button {
+    background-color: rgba(255, 255, 255, 0.58) !important;
+    border-color: rgba(0, 0, 0, 0.05);
+}.abc-light .opb-transparent .events-button:hover,
+.abc-light .opb-transparent.events-button:hover,
+.abc-light .opb-transparent .world-clocks-button:hover,
+.abc-light .opb-transparent.world-clocks-button:hover,
+.abc-light .opb-transparent .weather-button:hover,
+.abc-light .opb-transparent.weather-button:hover {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+}.abc-light .opb-transparent .events-button:focus,
+.abc-light .opb-transparent.events-button:focus,
+.abc-light .opb-transparent .world-clocks-button:focus,
+.abc-light .opb-transparent.world-clocks-button:focus,
+.abc-light .opb-transparent .weather-button:focus,
+.abc-light .opb-transparent.weather-button:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent .events-button:active,
+.abc-light .opb-transparent.events-button:active,
+.abc-light .opb-transparent .world-clocks-button:active,
+.abc-light .opb-transparent.world-clocks-button:active,
+.abc-light .opb-transparent .weather-button:active,
+.abc-light .opb-transparent.weather-button:active,
+.abc-light .opb-transparent .events-button:focus,
+.abc-light .opb-transparent.events-button:focus,
+.abc-light .opb-transparent .world-clocks-button:focus,
+.abc-light .opb-transparent.world-clocks-button:focus,
+.abc-light .opb-transparent .weather-button:focus,
+.abc-light .opb-transparent.weather-button:focus {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+}.abc-light .opb-transparent .world-clocks-button .world-clocks-header.no-world-clocks,
+.abc-light .opb-transparent.world-clocks-button .world-clocks-header.no-world-clocks,
+.abc-light .opb-transparent .weather-button .weather-box .weather-header-box .weather-header.no-location,
+.abc-light .opb-transparent.weather-button .weather-box .weather-header-box .weather-header.no-location {
+    color: rgba(0, 0, 0, 0.9);
+}.abc-light .opb-transparent .events-button .events-box .events-title,
+.abc-light .opb-transparent.events-button .events-box .events-title,
+.abc-light .opb-transparent .events-box .events-list .event-box .event-time,
+.abc-light .opb-transparent.events-box .events-list .event-box .event-time,
+.abc-light .opb-transparent .events-button .events-box .events-list .event-placeholder,
+.abc-light .opb-transparent.events-button .events-box .events-list .event-placeholder,
+.abc-light .opb-transparent .world-clocks-button .world-clocks-header,
+.abc-light .opb-transparent.world-clocks-button .world-clocks-header,
+.abc-light .opb-transparent .world-clocks-button .world-clocks-grid .world-clocks-timezone,
+.abc-light .opb-transparent.world-clocks-button .world-clocks-grid .world-clocks-timezone,
+.abc-light .opb-transparent .weather-button .weather-box .weather-header-box .weather-header,
+.abc-light .opb-transparent.weather-button .weather-box .weather-header-box .weather-header {
+    color: rgba(0, 0, 0, 0.68);
+}.abc-light .opb-transparent .calendar .calendar-month-header .calendar-month-label,
+.abc-light .opb-transparent.calendar .calendar-month-header .calendar-month-label,
+.abc-light .opb-transparent .calendar .calendar-month-header .pager-button,
+.abc-light .opb-transparent.calendar .calendar-month-header .pager-button {
+    color: rgba(0, 0, 0, 0.9) !important;
+    background-color: transparent !important;
+    box-shadow: none;
+}.abc-light .opb-transparent .calendar .calendar-day-heading,
+.abc-light .opb-transparent.calendar .calendar-day-heading,
+.abc-light .opb-transparent .calendar .calendar-day,
+.abc-light .opb-transparent.calendar .calendar-day {
+    color: rgba(0, 0, 0, 0.9) !important;
+    background-color: transparent !important;
+    box-shadow: none;
+}.abc-light .opb-transparent .calendar .calendar-day-heading,
+.abc-light .opb-transparent.calendar .calendar-day-heading {
+    color: rgba(0, 0, 0, 0.68) !important;
+}.abc-light .opb-transparent .calendar .calendar-day.calendar-weekend,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-weekend {
+    color: rgba(0, 0, 0, 0.68) !important;
+}.abc-light .opb-transparent .calendar .calendar-day.calendar-other-month,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-other-month,
+.abc-light .opb-transparent .calendar .calendar-day.calendar-other-month.calendar-weekend,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-other-month.calendar-weekend {
+    color: rgba(0, 0, 0, 0.5) !important;
+}.abc-light .opb-transparent .calendar-day.calendar-today,
+.abc-light .opb-transparent.calendar-day.calendar-today {
+    color: rgba(0, 0, 0, 0.9) !important;
+    background-color: #3584e4 !important;
+}.abc-light .opb-transparent .calendar .calendar-day:hover,
+.abc-light .opb-transparent.calendar .calendar-day:hover,
+.abc-light .opb-transparent .calendar .calendar-month-header .pager-button:hover,
+.abc-light .opb-transparent.calendar .calendar-month-header .pager-button:hover {
+    background-color: rgba(0, 0, 0, 0.13) !important;
+}.abc-light .opb-transparent .calendar .calendar-day:focus,
+.abc-light .opb-transparent.calendar .calendar-day:focus,
+.abc-light .opb-transparent .calendar .calendar-day-heading:focus,
+.abc-light .opb-transparent.calendar .calendar-day-heading:focus,
+.abc-light .opb-transparent .calendar .calendar-month-header .calendar-month-label:focus,
+.abc-light .opb-transparent.calendar .calendar-month-header .calendar-month-label:focus,
+.abc-light .opb-transparent .calendar .calendar-month-header .pager-button:focus,
+.abc-light .opb-transparent.calendar .calendar-month-header .pager-button:focus {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent .calendar-day:selected,
+.abc-light .opb-transparent.calendar-day:selected,
+.abc-light .opb-transparent .calendar .calendar-day:checked,
+.abc-light .opb-transparent.calendar .calendar-day:checked,
+.abc-light .opb-transparent .calendar .calendar-day:active,
+.abc-light .opb-transparent.calendar .calendar-day:active,
+.abc-light .opb-transparent .calendar .calendar-month-header .pager-button:active,
+.abc-light .opb-transparent.calendar .calendar-month-header .pager-button:active {
+    color: rgba(0, 0, 0, 0.9) !important;
+    background-color: rgba(0, 0, 0, 0.19) !important;
+}.abc-light .opb-transparent .calendar-day:selected:focus,
+.abc-light .opb-transparent.calendar-day:selected:focus,
+.abc-light .opb-transparent .calendar .calendar-day:checked:focus,
+.abc-light .opb-transparent.calendar .calendar-day:checked:focus {
+    background-color: rgba(0, 0, 0, 0.19) !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent .calendar .calendar-day:active:hover,
+.abc-light .opb-transparent.calendar .calendar-day:active:hover,
+.abc-light .opb-transparent .calendar .calendar-day:checked:hover,
+.abc-light .opb-transparent.calendar .calendar-day:checked:hover {
+    background-color: rgba(0, 0, 0, 0.13) !important;
+}.abc-light .opb-transparent .calendar .calendar-day.calendar-today:selected,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:selected,
+.abc-light .opb-transparent .calendar .calendar-day.calendar-today:checked,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:checked {
+    color: #ffffff !important;
+    background-color: #3584e4 !important;
+}.abc-light .opb-transparent .calendar .calendar-day.calendar-today:hover,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:hover,
+.abc-light .opb-transparent .calendar .calendar-day.calendar-today:checked:hover,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:checked:hover,
+.abc-light .opb-transparent .calendar .calendar-day.calendar-today:selected:hover,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:selected:hover {
+    color: #ffffff !important;
+    background-color: #468ee6 !important;
+}.abc-light .opb-transparent .calendar .calendar-day.calendar-today:active,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:active,
+.abc-light .opb-transparent .calendar .calendar-day.calendar-today:checked:active,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:checked:active,
+.abc-light .opb-transparent .calendar .calendar-day.calendar-today:selected:active,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:selected:active {
+    color: #ffffff !important;
+    background-color: #5d9ce9 !important;
+}.abc-light .opb-transparent .calendar .calendar-day.calendar-today:focus,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:focus,
+.abc-light .opb-transparent .calendar .calendar-day.calendar-today:checked:focus,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:checked:focus {
+    background-color: #3986e4 !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent .calendar .calendar-day.calendar-today:selected:focus,
+.abc-light .opb-transparent.calendar .calendar-day.calendar-today:selected:focus {
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent StEntry {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
+}.abc-light .opb-transparent StEntry:focus {
+    color: rgba(0, 0, 0, 0.9) !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent StEntry:insensitive {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+}.abc-light .opb-transparent StEntry StLabel.hint-text {
+    color: rgba(0, 0, 0, 0.5) !important;
+}.abc-light .opb-transparent .quick-settings .quick-slider,
+.abc-light .opb-transparent.quick-settings .quick-slider,
+.abc-light .opb-transparent .quick-settings .quick-slider:hover,
+.abc-light .opb-transparent.quick-settings .quick-slider:hover,
+.abc-light .opb-transparent .quick-settings .quick-slider:focus,
+.abc-light .opb-transparent.quick-settings .quick-slider:focus,
+.abc-light .opb-transparent .quick-settings .quick-slider:active,
+.abc-light .opb-transparent.quick-settings .quick-slider:active,
+.abc-light .opb-transparent .quick-settings .quick-slider:checked,
+.abc-light .opb-transparent.quick-settings .quick-slider:checked,
+.abc-light .opb-transparent .quick-slider .slider-bin,
+.abc-light .opb-transparent.quick-slider .slider-bin,
+.abc-light .opb-transparent .quick-slider .slider-bin:hover,
+.abc-light .opb-transparent.quick-slider .slider-bin:hover,
+.abc-light .opb-transparent .quick-slider .slider-bin:focus,
+.abc-light .opb-transparent.quick-slider .slider-bin:focus,
+.abc-light .opb-transparent .quick-slider .icon-button,
+.abc-light .opb-transparent.quick-slider .icon-button,
+.abc-light .opb-transparent .quick-slider .button,
+.abc-light .opb-transparent.quick-slider .button {
+    background-color: transparent !important;
+    border-color: transparent;
+    box-shadow: none;
+}.abc-light .opb-transparent .quick-slider .icon-button:hover,
+.abc-light .opb-transparent.quick-slider .icon-button:hover,
+.abc-light .opb-transparent .quick-slider .button:hover,
+.abc-light .opb-transparent.quick-slider .button:hover {
+    background-color: rgba(0, 0, 0, 0.13) !important;
+}.abc-light .opb-transparent .quick-settings .quick-slider:focus,
+.abc-light .opb-transparent.quick-settings .quick-slider:focus,
+.abc-light .opb-transparent .quick-slider .slider-bin:focus,
+.abc-light .opb-transparent.quick-slider .slider-bin:focus,
+.abc-light .opb-transparent .quick-slider .icon-button:focus,
+.abc-light .opb-transparent.quick-slider .icon-button:focus,
+.abc-light .opb-transparent .quick-slider .button:focus,
+.abc-light .opb-transparent.quick-slider .button:focus {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    box-shadow: inset 0 0 0 2px rgba(53, 132, 228, 0.5) !important;
+}.abc-light .opb-transparent .quick-slider .icon-button:active,
+.abc-light .opb-transparent.quick-slider .icon-button:active,
+.abc-light .opb-transparent .quick-slider .button:active,
+.abc-light .opb-transparent.quick-slider .button:active {
+    background-color: rgba(0, 0, 0, 0.19) !important;
+}.abc-light .opb-transparent .popup-menu-item,
+.abc-light .opb-transparent.popup-menu-item,
+.abc-light .opb-transparent .popup-menu-item:hover,
+.abc-light .opb-transparent.popup-menu-item:hover,
+.abc-light .opb-transparent .popup-menu-item:focus,
+.abc-light .opb-transparent.popup-menu-item:focus,
+.abc-light .opb-transparent .popup-menu-item:selected,
+.abc-light .opb-transparent.popup-menu-item:selected,
+.abc-light .opb-transparent .popup-menu-item:active,
+.abc-light .opb-transparent.popup-menu-item:active,
+.abc-light .opb-transparent .popup-menu-item:checked,
+.abc-light .opb-transparent.popup-menu-item:checked {
+    color: rgba(0, 0, 0, 0.9);
+}.abc-light .opb-transparent .popup-menu-item:insensitive,
+.abc-light .opb-transparent.popup-menu-item:insensitive,
+.abc-light .opb-transparent .popup-inactive-menu-item:insensitive,
+.abc-light .opb-transparent.popup-inactive-menu-item:insensitive {
+    color: rgba(0, 0, 0, 0.5);
+}.abc-light .opb-transparent .popup-menu-item:hover,
+.abc-light .opb-transparent.popup-menu-item:hover,
+.abc-light .opb-transparent .popup-menu-item:focus,
+.abc-light .opb-transparent.popup-menu-item:focus {
+    background-color: rgba(0, 0, 0, 0.13) !important;
+}.abc-light .opb-transparent .popup-menu-item:active,
+.abc-light .opb-transparent.popup-menu-item:active,
+.abc-light .opb-transparent .popup-menu-item:open,
+.abc-light .opb-transparent.popup-menu-item:open,
+.abc-light .opb-transparent .popup-menu-item:checked,
+.abc-light .opb-transparent.popup-menu-item:checked {
+    background-color: rgba(0, 0, 0, 0.19) !important;
+}.abc-light.opb-active .quick-toggle-menu,
+.abc-light.opb-active .quick-toggle-menu.opb-transparent,
+.abc-light.opb-active .opb-transparent .quick-toggle-menu {
+    background: #ebebed !important;
+    border-color: rgba(0, 0, 0, 0.08);
 }

@@ -1,2 +1,5 @@
 dist/
 __pycache__/
+
+schemas/gschemas.compiled
+.prefs-smoke.js

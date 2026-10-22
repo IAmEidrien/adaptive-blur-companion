@@ -1,21 +1,28 @@
-# Dynamic Overview Popup Backgrounds
+# Adaptive Blur My Shell Companion
 
-Target GNOME Shell 46 / Wayland. UUID dynamic-overview-popup-backgrounds@eidrien.local.
-Preserve GPL-3.0-only and Blur my Shell attribution. Keep root installation layout.
+GNOME Shell 46 / Wayland. UUID `adaptive-blur-companion@eidrien.local`.
+Preserve GPL-3.0-only and Blur my Shell attribution. Keep runtime at repo root.
 
-- Read BMS internal APIs only through policy.js; validate their shape and stay
-  inactive on unsupported versions. Do not patch BMS methods, mutate its surfaces
-  map, modify its saved settings, or add per-frame/permanent polling.
-- Activate only with BMS enabled, popup blur enabled, and Override background OFF.
-- BMS dark tint and descendant styling only in Overview, scoped to registered
-  blur targets. Preserve theme toggle/arrow accents and GNOME 46 color fallbacks. Quick
-  Settings submenus, including QST overlays, remain opaque in both states.
-- Only remove style classes we own. Never overwrite inline styles or geometry.
-- Native MessageTray Source title must match the extension name; use GNOME 46
-  constructor APIs. Source.destroy needs a NotificationDestroyedReason value.
-  Notifications respect ordinary DND and offer preferences where available.
-- Disconnect signals and cancel all callbacks on disable. No input capture,
-  window hacks, forced logout, downloaded runtime dependencies or schema needed.
-- make check and make pack must pass. Test load order, live settings, Overview,
-  new surfaces, exclusions, notifications and cleanup. Mocks are not native QA.
-- Preserve normal Gitpulsar Pull history if hosted on GitHub; never force push.
+- Two independent effects and preferences pages: Pop-up backgrounds and Scheme pipelines.
+- Popup internal API adapter is in policy.js. Pipeline schema access is in
+  bms-settings.js; runtime obtains BMS's root `_settings.settings`. Validate shape.
+- Never patch BMS methods, mutate surfaces, edit pipeline definitions, change
+  wallpaper or automatically change its popup Override background/Blur toggles.
+- Scheme switching MAY write only user-selected component `pipeline` settings.
+  Automatic switching is opt-in, event-based, using GNOME color-scheme; default
+  means light. No permanent polling. Manual application is available independently.
+- Keep one persistent revert snapshot, written only after actual successful changes;
+  no-op must preserve it. Validate targets before writes, roll back failed writes.
+  Revert consumes snapshot, never immediately auto-reapplies. No restore on disable.
+- Popup effect needs BMS enabled, modern Popups blur on and Override background off.
+  Background styling only in Overview, scoped to registered targets. Follow GNOME
+  appearance; Quick Settings/QST sheets stay opaque in both states. Preserve accents.
+- Only remove owned classes. Never overwrite inline styles or geometry. GNOME 46
+  CSS cannot use modern accent variables or web display:none. Preserve weather
+  privacy in the companion theme; never turn it into a globally enforced setting.
+- Native MessageTray Source uses extension name, GNOME 46 APIs and destroy reasons.
+  Disconnect signals and cancel callbacks on disable. No input grabs/forced logout.
+- make check and make pack must pass. Native GTK/GSettings smoke tests run in CI;
+  mocks and smoke tests are not native GNOME rendering QA. Keep TESTING.md honest.
+- Preserve normal Gitpulsar Pull history; never force push. Historical release
+  legacy-v1.1.0 preserves Dynamic Overview Popup Backgrounds under its old UUID.

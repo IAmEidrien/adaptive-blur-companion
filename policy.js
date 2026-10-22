@@ -2,6 +2,7 @@
 export const BMS_UUID = 'blur-my-shell@aunetx';
 export const ACTIVE_CLASS = 'opb-active';
 export const TRANSPARENT_CLASS = 'opb-transparent';
+export const LIGHT_CLASS = 'abc-light';
 
 // Read-only adapter for Blur my Shell's modern popup component. This is an
 // internal API, deliberately shape-checked; never monkey-patch its methods.
@@ -71,6 +72,11 @@ export class BackgroundPolicy {
         }
     }
 
+    setLightStyle(light) {
+        if (light) this.root.add_style_class_name(LIGHT_CLASS);
+        else this.root.remove_style_class_name(LIGHT_CLASS);
+    }
+
     release(target) {
         const record = this.targets.get(target);
         if (!record)
@@ -85,5 +91,6 @@ export class BackgroundPolicy {
         for (const target of this.targets.keys())
             this.release(target);
         this.root.remove_style_class_name(ACTIVE_CLASS);
+        this.root.remove_style_class_name(LIGHT_CLASS);
     }
 }

@@ -85,5 +85,16 @@ test('copied styling has balanced rules, local scope, and no post-46 accent vari
     assert.equal((css.match(/\{/g) ?? []).length, (css.match(/\}/g) ?? []).length);
     assert.doesNotMatch(css, /-st-accent-color|\.bms-popup-/);
     for (const [, selectors] of rules)
-        assert.ok(selectors.split(',').every(selector => selector.trim().startsWith('.opb-')));
+        assert.ok(selectors.split(',').every(selector => selector.trim().startsWith('.opb-') || selector.trim().startsWith('.abc-light')));
+});
+
+test('light tint, readable controls and opaque sheets follow the appearance root', () => {
+    const root = actor('opb-active abc-light');
+    const quick = actor('opb-transparent quick-settings', root);
+    assert.equal(background(quick), 'rgba(255, 255, 255, 0.65)');
+    assert.equal(background(actor('icon-button', actor('quick-settings-system-item', quick))), 'rgba(0, 0, 0, 0.1)');
+    assert.equal(background(actor('quick-toggle-menu', quick)), '#ebebed');
+    root.classes.delete('abc-light');
+    assert.equal(background(quick), 'rgba(30, 30, 33, 0.5)');
+    assert.equal(background(actor('quick-toggle-menu', quick)), '#2e2e32');
 });

@@ -3,7 +3,9 @@ import {readFileSync} from 'node:fs';
 import test from 'node:test';
 import vm from 'node:vm';
 import {BackgroundPolicy, dependency, BMS_UUID, ACTIVE_CLASS, TRANSPARENT_CLASS,
-    inQuickSubmenu} from '../policy.js';
+    inQuickSubmenu, LIGHT_CLASS} from '../policy.js';
+
+import {PipelineController, resolveScheme} from '../pipelines.js';
 
 class Signals {
     listeners = new Map();
@@ -33,6 +35,26 @@ class Actor extends Signals {
     destroy() { this.emit('destroy'); this.listeners.clear(); }
 }
 function fixture() {
+    const own = new Signals();
+    own.values = {'popup-backgrounds-enabled': true, 'scheme-pipelines-enabled': false,
+        'scheme-pipelines': {}, 'revert-pipelines': {}, 'pipeline-request': '', 'pipeline-result': ''};
+    const appearance = new Signals();
+    appearance.values = {'color-scheme': 'prefer-dark'};
+    for (const settings of [own, appearance]) {
+        settings.get_boolean = key => settings.values[key];
+        settings.get_string = key => settings.values[key];
+        settings.get_value = key => ({deep_unpack: () => settings.values[key]});
+        settings.set_value = (key, value) => {settings.values[key] = value.deep_unpack(); settings.emit(`changed::${key}`); return true;};
+        settings.set_string = (key, value) => {settings.values[key] = value; settings.emit(`changed::${key}`); return true;};
+    }
+    const pipelineValues = {overview: 'original', popup: 'original'};
+    class Store {
+        catalog() { return {original: {}, light: {}, dark: {}}; }
+        components() { return Object.keys(pipelineValues); }
+        read(key) { return pipelineValues[key]; }
+        writable() { return true; }
+        write(key, value) {pipelineValues[key] = value; return true;}
+    }
     const target = new Actor();
     const settings = new Signals();
     settings.values = {'blur': true, 'override-background': false};
@@ -68,17 +90,19 @@ function fixture() {
     const source = readFileSync(new URL('../extension.js', import.meta.url), 'utf8')
         .replace(/^import .*;\n/gm, '')
         .replace('export default class', 'class');
-    const ExtensionClass = vm.runInNewContext(`${source}; OverviewPopupBackgrounds`, {
-        Extension: class {metadata = {name: 'Dynamic Overview Popup Backgrounds'};},
-        GLib: {PRIORITY_DEFAULT: 0, PRIORITY_DEFAULT_IDLE: 0, SOURCE_REMOVE: false,
+    const ExtensionClass = vm.runInNewContext(`${source}; AdaptiveBlurCompanion`, {
+        Extension: class {metadata = {name: 'Adaptive Blur My Shell Companion'}; getSettings() {return own;}},
+        Gio: {Settings: class {constructor() {return appearance;}}},
+        GLib: {Variant: class {constructor(_type, value) {this.value = value;} deep_unpack() {return this.value;}}, PRIORITY_DEFAULT: 0, PRIORITY_DEFAULT_IDLE: 0, SOURCE_REMOVE: false,
             idle_add: (_p, callback) => schedule(callback),
             timeout_add: (_p, _ms, callback) => schedule(callback),
             source_remove: id => tasks.delete(id)},
         Main, MessageTray: {Source, Notification, NotificationDestroyedReason: {SOURCE_CLOSED: 3}}, global: {}, console,
-        BackgroundPolicy, BMS_UUID, dependency,
+        BackgroundPolicy, BMS_UUID, dependency, PipelineController, resolveScheme,
+        BmsPipelineStore: Store, unpack: value => value.deep_unpack(),
     });
     const extension = new ExtensionClass();
-    return {extension, Main, root, target, component, settings, info, bms, tasks, sources,
+    return {own, appearance, pipelineValues, extension, Main, root, target, component, settings, info, bms, tasks, sources,
         flush() {
             let count = 0;
             while (tasks.size) {
@@ -139,7 +163,7 @@ test('conflict notifications use a named native source, preferences action, and 
     assert.ok(!f.root.classes.has(ACTIVE_CLASS));
     assert.equal(f.sources.length, 1);
     const source = f.sources[0];
-    assert.equal(source.title, 'Dynamic Overview Popup Backgrounds');
+    assert.equal(source.title, 'Adaptive Blur My Shell Companion');
     assert.equal(source.iconName, 'preferences-desktop-appearance-symbolic');
     const notification = source.notifications[0];
     assert.match(notification.body, /turn off Override background/);
@@ -197,7 +221,7 @@ test('disabling cancels queued work, signals, notification and styles without ch
     f.root.emit('child-added', new Actor()); f.extension._settle();
     f.extension.disable();
     assert.equal(f.tasks.size, 0);
-    for (const object of [f.root, f.settings, f.Main.overview, f.Main.extensionManager])
+    for (const object of [f.root, f.settings, f.own, f.appearance, f.Main.overview, f.Main.extensionManager])
         assert.equal(object.listeners.size, 0);
     assert.ok(!f.target.classes.has(TRANSPARENT_CLASS));
     assert.equal(f.settings.values.blur, true);
@@ -211,4 +235,44 @@ test('policy does not remove an existing class it did not add', () => {
     const policy = new BackgroundPolicy(f.root);
     policy.apply(f.component.surfaces, true); policy.clear();
     assert.ok(f.target.classes.has(TRANSPARENT_CLASS));
+});
+
+
+test('light appearance changes classes live and disable removes them', () => {
+    const f = fixture(); f.extension.enable(); f.flush();
+    f.appearance.set_string('color-scheme', 'prefer-light');
+    assert.ok(f.root.classes.has(LIGHT_CLASS));
+    f.appearance.set_string('color-scheme', 'prefer-dark');
+    assert.ok(!f.root.classes.has(LIGHT_CLASS));
+    f.appearance.set_string('color-scheme', 'default');
+    assert.ok(f.root.classes.has(LIGHT_CLASS));
+    f.extension.disable(); assert.ok(!f.root.classes.has(LIGHT_CLASS));
+});
+
+test('pipelines are event-based, independent of popups, and revert does not reapply', () => {
+    const f = fixture();
+    f.own.values['popup-backgrounds-enabled'] = false;
+    f.own.values['scheme-pipelines-enabled'] = true;
+    f.own.values['scheme-pipelines'] = {overview: {light: 'light', dark: 'dark'}};
+    f.extension.enable(); f.flush();
+    assert.equal(f.pipelineValues.overview, 'dark');
+    assert.ok(!f.root.classes.has(ACTIVE_CLASS));
+    f.own.set_string('pipeline-request', '1:revert'); f.flush();
+    assert.equal(f.pipelineValues.overview, 'original');
+    assert.equal(Object.keys(f.own.values['revert-pipelines']).length, 0);
+    f.appearance.set_string('color-scheme', 'prefer-light'); f.flush();
+    assert.equal(f.pipelineValues.overview, 'light');
+    f.extension.disable();
+    assert.equal(f.pipelineValues.overview, 'light');
+});
+
+test('manual apply works with automatic switching off and requests are not replayed', () => {
+    const f = fixture();
+    f.own.values['pipeline-request'] = 'old:dark';
+    f.own.values['scheme-pipelines'] = {popup: {dark: 'dark'}};
+    f.extension.enable(); f.flush();
+    assert.equal(f.pipelineValues.popup, 'original');
+    f.own.set_string('pipeline-request', 'new:dark');
+    assert.equal(f.pipelineValues.popup, 'dark');
+    f.extension.disable();
 });

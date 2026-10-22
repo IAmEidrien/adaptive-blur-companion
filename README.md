@@ -1,90 +1,85 @@
-# Dynamic Overview Popup Backgrounds
+# Adaptive Blur My Shell Companion
 
-A small GNOME Shell 46 companion to **Blur my Shell's modern popup blur**.
+Two optional improvements for **Blur my Shell on GNOME Shell 46**, in separate
+**Pop-up backgrounds** and **Scheme pipelines** preferences tabs.
 
-- In Overview, registered popup blur surfaces use BMS’s dark translucent tint, with
-  matching notification, calendar and smaller-control styling.
-- Outside Overview, their normal Shell-theme backgrounds return.
-- Quick Settings submenus always use an opaque Adwaita dark background
-  (`#2e2e32`), including Quick Settings Tweaks' overlay layout.
-- Blur my Shell remains responsible for blur. This extension does not disable
-  blur computation outside Overview or change its saved preferences.
-- Native notifications are attributed to **Dynamic Overview Popup Backgrounds**, with
-  a symbolic appearance icon and a shortcut to Blur my Shell's preferences.
-  Repeated dependency warnings are suppressed until the state changes.
+- **Pop-up backgrounds:** in Overview, BMS-registered popup surfaces receive a
+  translucent tint and coordinated calendar, notification and control styling.
+  The tint follows GNOME light/dark appearance. Outside Overview, your shell
+  theme backgrounds return. Quick Settings submenus, including Quick Settings
+  Tweaks overlays, stay opaque in both states. Checked toggle accents stay themed.
+- **Scheme pipelines:** choose existing BMS pipelines per component for light
+  and dark appearance. Enable automatic switching, or apply either set manually.
+  Empty selections leave the component unchanged. Only selected `pipeline` keys
+  are written; pipeline definitions, blur toggles and wallpaper are untouched.
 
-## Setup
+Automatic switching is **off by default**. It applies on enable, GNOME appearance
+changes and BMS becoming enabled. It reads
+`org.gnome.desktop.interface color-scheme`: `prefer-dark` is dark; `prefer-light`
+and `default` are light. It does not depend on a theme-changing extension.
+Changing a dropdown prepares your selection; use Apply or an appearance change
+to activate it. Manual Apply works with automatic switching off.
 
-1. Keep Blur my Shell enabled and enable **Popups → Blur**.
-2. Disable **Popups → Override background** in Blur my Shell.
-3. Clone the repository directly into the GNOME extension directory:
+**Revert** starts disabled. An application that actually changes selections saves
+those previous values, replacing the single snapshot. A no-op leaves the snapshot
+alone. Revert restores it once and clears it; no history or immediate automatic
+reapplication. The snapshot survives logout. Disabling the companion leaves BMS's
+current pipeline selections in place. Invalid/missing pipeline IDs are reported
+before any writes; failed writes attempt to roll back changed components.
 
-   ```sh
-   mkdir -p ~/.local/share/gnome-shell/extensions
-   git clone git@github.com:IAmEidrien/dynamic-overview-popup-backgrounds.git \
-     ~/.local/share/gnome-shell/extensions/dynamic-overview-popup-backgrounds@eidrien.local
-   ```
+## Install and update
 
-4. Log out and back in, then enable **Dynamic Overview Popup Backgrounds** in
-   your extension manager, or run:
+Keep BMS enabled. For the pop-up effect, enable **Popups → Blur** and disable
+**Popups → Override background** in BMS. This requirement does not block the
+independent pipeline feature. Dependency warnings use the companion's name.
 
-   ```sh
-   gnome-extensions enable dynamic-overview-popup-backgrounds@eidrien.local
-   ```
+```sh
+mkdir -p ~/.local/share/gnome-shell/extensions
+git clone git@github.com:IAmEidrien/dynamic-overview-popup-backgrounds.git \
+  ~/.local/share/gnome-shell/extensions/adaptive-blur-companion@eidrien.local
+cd ~/.local/share/gnome-shell/extensions/adaptive-blur-companion@eidrien.local
+glib-compile-schemas --strict schemas
+```
 
-Open the installed folder in Gitpulsar and use **Pull** for later updates. Close
-any preferences windows and log out/in after pulling runtime changes on Wayland.
-The runtime files live at the repository root; no copying or build step is needed.
-Do not install a release ZIP over a Git-managed checkout.
+Log out/in, then enable **Adaptive Blur My Shell Companion** in your extension
+manager. Open preferences to configure pipelines. The root runtime layout supports
+Gitpulsar Pull updates; after pulling, close preferences, rerun
+`glib-compile-schemas --strict schemas`, and log out/in for runtime changes on
+Wayland. The folder name must match the UUID above. Do not install a ZIP over a
+Git checkout. Alternatively `make pack` builds a directly installable ZIP with a
+compiled schema; `gnome-extensions install /path/to/adaptive-blur-companion@eidrien.local.zip`.
 
-Alternatively, build a ZIP with `make pack` and install it with
-`gnome-extensions install /path/to/dynamic-overview-popup-backgrounds@eidrien.local.zip`.
+The previous **Dynamic Overview Popup Backgrounds** is preserved in the historical
+[legacy-v1.1.0 release](https://github.com/IAmEidrien/dynamic-overview-popup-backgrounds/releases/tag/legacy-v1.1.0).
 
-No schemas or extra packages are required. Enabling this helper is its on/off
-switch; it has no separate preferences window. Disable it to restore all its
-background changes. If Override background is enabled again, the helper becomes
-inactive and tells you what to change. It never changes that setting for you.
+## Matching light shell theme
 
-Remove any experimental `.quick-toggle-menu` overrides added to your Shell theme
-when trying the earlier CSS workaround, so those rules do not interfere with
-restoration. Other custom theme changes can remain.
+`themes/Eidrien-Adwaita-Light/gnome-shell/gnome-shell.css` is a light version of
+Eidrien's supplied GNOME 46 shell theme: modern Adwaita surfaces, blue accents,
+40px panel, bold labels and quieter 80%-opaque app-grid text. Geometry and existing
+selectors are retained. Weather city text stays hidden using supported Shell CSS
+(`color: transparent`), rather than web-only `display: none`; the label's space
+remains. This hides visual text, not weather data or accessibility text.
 
-## Compatibility and limitations
+Copy `themes/Eidrien-Adwaita-Light` to `~/.local/share/themes/`, then select it
+with User Themes / your shell-theme switcher. The companion switches pipelines
+and its own popup styling; it does not select the shell theme for you. The exact
+supplied dark source is included under `themes/reference/` for comparison.
 
-Designed against Blur my Shell commit
-`30a8e73f370e8e32577b6916803ef139bdd91282`, whose metadata supports GNOME 46.
-Older Blur my Shell releases without the modern Popups component are unsupported.
-The helper reads `_popup.surfaces`, `_popup.enabled`, and
-`_settings.popup.settings` from Blur my Shell's extension instance. These are
-**internal APIs**, checked at runtime. An incompatible version leaves the helper
-inactive instead of patching or replacing Blur my Shell functions.
+## Compatibility and development
 
-Overview styling is scoped to registered target actors and their contents. The
-outer tint matches BMS dark mode (`rgba(30, 30, 33, 0.5)`); notification cards,
-calendar sections and small action buttons use its coordinated translucency.
-Checked toggle and dropdown-arrow accents remain controlled by your Shell theme.
-Inline geometry and other extensions’ style classes are preserved.
-The Quick Settings exception intentionally covers all `.quick-toggle-menu`
-submenus rather than depending on Quick Settings Tweaks' private state.
-The opaque submenu fallback does not sample the changing wallpaper palette.
+Designed against BMS revision `30a8e73f370e8e32577b6916803ef139bdd91282`, with
+modern Popups support. Popup integration reads `_popup.surfaces`, `_popup.enabled`
+and `_settings.popup.settings`; pipeline integration reads `_settings.settings`
+and its schema-defined children. These internal entry points are shape-checked;
+unsupported versions report an error or keep the affected effect inactive.
+No method replacement, per-frame polling, input grabs, forced logout or downloaded
+runtime dependencies. BMS continues to handle blur rendering outside Overview.
 
-The helper observes Overview, settings, dependency lifecycle and popup surface
-insertions. Work is coalesced; there is no permanent polling timer, stage-wide
-input capture, modal grab, or forced reload/logout.
+`make check` runs policy/lifecycle/CSS tests, schema compilation, JS syntax and
+light-theme checks. `make pack` verifies the ZIP. CI also runs native GJS/GTK/
+GSettings smoke checks with fixture BMS schemas. **These checks do not replace
+live GNOME 46 visual testing**; see TESTING.md.
 
-Automated mocks validate behavior and packaging, **not native GNOME rendering**.
-Check your installed Blur my Shell version and follow TESTING.md for live tests.
-
-## Development
-
-The repository layout is directly installable at:
-`~/.local/share/gnome-shell/extensions/dynamic-overview-popup-backgrounds@eidrien.local/`.
-The archive contains source, tests and maintenance instructions as well as runtime
-files, so it can also seed a new Git repository. Keep generated ZIPs out of Git.
-
-Run `make check` (Node and Python 3), then `make pack`. The output goes to `dist/`.
-There are no downloaded runtime dependencies.
-
-Original extension design and direction: Eidrien. Implementation was AI-assisted.
-See NOTICE.md for the upstream background-style reference and attribution.
-Licensed under GPL-3.0-only; see LICENSE.
+Design and direction: Eidrien. Implementation was AI-assisted. GPL-3.0-only;
+see LICENSE and NOTICE.md for BMS attribution.
