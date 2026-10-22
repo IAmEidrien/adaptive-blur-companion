@@ -1,0 +1,39 @@
+name: Preserve legacy popup helper
+on:
+  push:
+    branches: [archive-legacy-release]
+permissions:
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 6343db530098293ab18b0b17a59b7e0e0e0d3634
+          persist-credentials: false
+      - name: Verify and package unchanged legacy extension
+        run: make pack
+      - name: Publish historical release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          cat > /tmp/legacy-notes.md <<'NOTES'
+          Historical snapshot of **Dynamic Overview Popup Backgrounds 1.1.0**, preserved unchanged before development of Adaptive Blur My Shell Companion.
+          
+          Source commit: 6343db530098293ab18b0b17a59b7e0e0e0d3634
+          
+          UUID: `dynamic-overview-popup-backgrounds@eidrien.local`
+          
+          The attached ZIP is the verified installable GNOME 46 extension package from that exact source.
+          
+          **Do not enable this historical extension and subsequent Adaptive Blur My Shell Companion releases at the same time. They are different extensions with a shared lineage and overlapping functionality.**
+          NOTES
+          if ! gh release view legacy-v1.1.0 >/dev/null 2>&1; then
+            gh release create legacy-v1.1.0 \
+              dist/dynamic-overview-popup-backgrounds@eidrien.local.zip \
+              --target 6343db530098293ab18b0b17a59b7e0e0e0d3634 \
+              --title 'Dynamic Overview Popup Backgrounds 1.1.0 — historical snapshot' \
+              --notes-file /tmp/legacy-notes.md --latest=false
+          fi
