@@ -18,8 +18,8 @@ Preserve GPL-3.0-only and Blur my Shell attribution. Keep runtime at repo root.
   Background styling only in Overview, scoped to registered targets. Follow GNOME
   appearance; Quick Settings/QST sheets stay opaque in both states. Preserve accents.
 - Only remove owned classes. Never overwrite inline styles or geometry. GNOME 46
-  CSS cannot use modern accent variables or web display:none. Preserve weather
-  privacy in the companion theme; never turn it into a globally enforced setting.
+  CSS cannot use modern accent variables or web display:none.
+- Do not bundle personal desktop themes. Use minimal, purpose-built test fixtures.
 - Native MessageTray Source uses extension name, GNOME 46 APIs and destroy reasons.
   Disconnect signals and cancel callbacks on disable. No input grabs/forced logout.
 - make check and make pack must pass. Native GTK/GSettings smoke tests run in CI;

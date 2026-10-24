@@ -45,9 +45,7 @@ rendering/performance is still managed by BMS, even under opaque backgrounds.
 - Disable the popup feature while retaining pipeline switching, and vice versa.
   Turn BMS popup Override background on: pipeline switching must continue working.
 - Check light popup text, cards, hover/focus, checked toggle labels, calendar today
-  and opaque Quick Settings sheets. Check the companion light shell theme both
-  inside/outside Overview, including hidden weather city text. It does not hide
-  accessibility text or remove the label's layout space.
+  and opaque Quick Settings sheets inside/outside Overview.
 - Disable/re-enable BMS, then the companion; log out/in. Verify the single snapshot
   persists, automatic enable application is understood, and no callbacks survive
   disable. Pipeline selections deliberately remain after disabling the companion.

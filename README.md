@@ -35,7 +35,7 @@ independent pipeline feature. Dependency warnings use the companion's name.
 
 ```sh
 mkdir -p ~/.local/share/gnome-shell/extensions
-git clone git@github.com:IAmEidrien/dynamic-overview-popup-backgrounds.git \
+git clone git@github.com:IAmEidrien/adaptive-blur-companion.git \
   ~/.local/share/gnome-shell/extensions/adaptive-blur-companion@eidrien.local
 cd ~/.local/share/gnome-shell/extensions/adaptive-blur-companion@eidrien.local
 glib-compile-schemas --strict schemas
@@ -50,21 +50,7 @@ Git checkout. Alternatively `make pack` builds a directly installable ZIP with a
 compiled schema; `gnome-extensions install /path/to/adaptive-blur-companion@eidrien.local.zip`.
 
 The previous **Dynamic Overview Popup Backgrounds** is preserved in the historical
-[legacy-v1.1.0 release](https://github.com/IAmEidrien/dynamic-overview-popup-backgrounds/releases/tag/legacy-v1.1.0).
-
-## Matching light shell theme
-
-`themes/Eidrien-Adwaita-Light/gnome-shell/gnome-shell.css` is a light version of
-Eidrien's supplied GNOME 46 shell theme: modern Adwaita surfaces, blue accents,
-40px panel, bold labels and quieter 80%-opaque app-grid text. Geometry and existing
-selectors are retained. Weather city text stays hidden using supported Shell CSS
-(`color: transparent`), rather than web-only `display: none`; the label's space
-remains. This hides visual text, not weather data or accessibility text.
-
-Copy `themes/Eidrien-Adwaita-Light` to `~/.local/share/themes/`, then select it
-with User Themes / your shell-theme switcher. The companion switches pipelines
-and its own popup styling; it does not select the shell theme for you. The exact
-supplied dark source is included under `themes/reference/` for comparison.
+[legacy-v1.1.0 release](https://github.com/IAmEidrien/adaptive-blur-companion/releases/tag/legacy-v1.1.0).
 
 ## Compatibility and development
 
@@ -76,8 +62,7 @@ unsupported versions report an error or keep the affected effect inactive.
 No method replacement, per-frame polling, input grabs, forced logout or downloaded
 runtime dependencies. BMS continues to handle blur rendering outside Overview.
 
-`make check` runs policy/lifecycle/CSS tests, schema compilation, JS syntax and
-light-theme checks. `make pack` verifies the ZIP. CI also runs native GJS/GTK/
+`make check` runs policy/lifecycle/CSS tests, schema compilation, JS syntax. `make pack` verifies the ZIP. CI also runs native GJS/GTK/
 GSettings smoke checks with fixture BMS schemas. **These checks do not replace
 live GNOME 46 visual testing**; see TESTING.md.
 
