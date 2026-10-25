@@ -1,0 +1,14 @@
+{
+  "commands": [
+    [
+      "make",
+      "check",
+      "pack"
+    ],
+    [
+      "sh",
+      "tests/run-native.sh"
+    ]
+  ],
+  "generic_package": false
+}
