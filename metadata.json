@@ -4,7 +4,12 @@
   "description": "Two independent Blur my Shell effects: Overview-dependent popup backgrounds with light/dark styling, and event-driven light/dark pipeline selection with one-level revert.",
   "settings-schema": "org.gnome.shell.extensions.adaptive-blur-companion",
   "shell-version": [
-    "46"
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51"
   ],
   "version": 3,
   "version-name": "2.0.0",

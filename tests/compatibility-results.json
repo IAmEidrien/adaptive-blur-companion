@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-24",
+  "bms_revision": "f019cd1fd8b8831fbb0f0ffccbffee526940faac",
+  "bms_version": 76,
+  "metadata_override": false,
+  "runtime_sha256": {
+    "extension.js": "dc51b48f4268eff04f5eb6049d22107b913d9fe788a80767eb1574a5013b32dd",
+    "policy.js": "7bd84de1eb94ab0c9f3f9b1a85ec1bc102bb4ed6a060ff762c3984033a107d6a",
+    "pipelines.js": "19b92e34f0d4c274234313b17f41108e31eed8429c014d914ea80c0d18c1a148",
+    "bms-settings.js": "704f56bc589e4006b696fef093ba908fab701cf4f1d8656b809ae2c9f4cacdae",
+    "stylesheet.css": "1da8286d769ff5364f1b2bd45d1b672962b4c6d6a030ebf55b22ca9b18a540cc"
+  },
+  "checks": [
+    "Missing BMS creates a native warning",
+    "Warning source uses extension name",
+    "Missing dependency leaves backgrounds untouched",
+    "Real BMS registers popup surfaces",
+    "BMS activation recovers companion",
+    "Outside Overview original popup backgrounds remain",
+    "Overview dark appearance styles registered surfaces",
+    "Light appearance updates native actor classes",
+    "Quick Settings submenu stays excluded",
+    "Light submenu computes opaque background",
+    "Dark submenu computes opaque background",
+    "Override conflict clears styling and creates warning",
+    "Override conflict recovers without logout",
+    "Popup blur off is guarded",
+    "Popup blur on recovers",
+    "Real BMS provides multiple existing pipelines",
+    "Manual apply works with automatic switching off",
+    "No-op preserves revert snapshot",
+    "Revert restores previous selection and consumes snapshot",
+    "Automatic light switching uses appearance signal",
+    "Automatic dark switching uses appearance signal",
+    "Default appearance resolves to light",
+    "Popup feature disables independently",
+    "Pipeline feature works while popup feature is disabled",
+    "Invalid pipeline fails without writes or snapshot loss",
+    "Pipeline definitions are unchanged",
+    "BMS disable removes styling and warns",
+    "BMS re-enable reconnects new settings and surfaces",
+    "Disable removes owned classes with callbacks pending",
+    "Disable cancels sources and disconnects signals",
+    "Companion re-enable works with BMS already running"
+  ],
+  "runs": [
+    {
+      "shell": "48.7",
+      "pass": true,
+      "checks_passed": 31,
+      "bms_surfaces_after_reenable": 25,
+      "gtk_gsettings_smoke": "passed"
+    },
+    {
+      "shell": "50.1",
+      "pass": true,
+      "checks_passed": 31,
+      "bms_surfaces_after_reenable": 26,
+      "gtk_gsettings_smoke": "passed"
+    },
+    {
+      "shell": "51.0",
+      "pass": true,
+      "checks_passed": 31,
+      "bms_surfaces_after_reenable": 26,
+      "gtk_gsettings_smoke": "passed"
+    }
+  ]
+}

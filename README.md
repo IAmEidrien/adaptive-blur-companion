@@ -1,6 +1,6 @@
 # Adaptive Blur My Shell Companion
 
-Two optional improvements for **Blur my Shell on GNOME Shell 46**, in separate
+Two optional improvements for **Blur my Shell on GNOME Shell 46–51**, in separate
 **Pop-up backgrounds** and **Scheme pipelines** preferences tabs.
 
 - **Pop-up backgrounds:** in Overview, BMS-registered popup surfaces receive a
@@ -54,6 +54,15 @@ The previous **Dynamic Overview Popup Backgrounds** is preserved in the historic
 
 ## Compatibility and development
 
+GNOME **48.7, 50.1 and 51.0** passed native Shell/Mutter integration checks
+with real Blur my Shell, plus native GTK/GSettings smoke checks. Versions **47
+and 49 are inferred compatible** between the maintained GNOME 46 baseline and
+the tested versions; they were not tested directly. Metadata allows 46–51.
+Compatibility does **not** mean full support: Eidrien personally tests and
+maintains the extension on GNOME 46. Other versions have bounded automated
+coverage, not a promise of complete desktop, hardware or theme support.
+See [TESTING.md](TESTING.md) for exact versions, coverage and limitations.
+
 Designed against BMS revision `30a8e73f370e8e32577b6916803ef139bdd91282`, with
 modern Popups support. Popup integration reads `_popup.surfaces`, `_popup.enabled`
 and `_settings.popup.settings`; pipeline integration reads `_settings.settings`
@@ -64,7 +73,7 @@ runtime dependencies. BMS continues to handle blur rendering outside Overview.
 
 `make check` runs policy/lifecycle/CSS tests, schema compilation, JS syntax. `make pack` verifies the ZIP. CI also runs native GJS/GTK/
 GSettings smoke checks with fixture BMS schemas. **These checks do not replace
-live GNOME 46 visual testing**; see TESTING.md.
+full desktop visual testing**; see TESTING.md for the separate native Shell matrix.
 
 Design and direction: Eidrien. Implementation was AI-assisted. GPL-3.0-only;
 see LICENSE and NOTICE.md for BMS attribution.
