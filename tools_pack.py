@@ -4,7 +4,7 @@ import json
 root = Path(__file__).resolve().parent
 metadata = json.loads((root / 'metadata.json').read_text())
 files = [p for p in root.iterdir() if p.is_file() and p.suffix in {'.js', '.css', '.json', '.md', '.py'}]
-files += [root / n for n in ['LICENSE', 'Makefile', '.gitignore']]
+files += [root / n for n in ['LICENSE', 'COPYING', 'Makefile', '.gitignore']]
 for folder in ['schemas', 'tests']:
     files += [p for p in (root / folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts]
 output = root / 'dist' / f"{metadata['uuid']}.zip"

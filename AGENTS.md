@@ -1,7 +1,7 @@
 # Adaptive Blur My Shell Companion
 
 GNOME Shell 46 / Wayland. UUID `adaptive-blur-companion@eidrien.local`.
-Preserve GPL-3.0-only and Blur my Shell attribution. Keep runtime at repo root.
+Preserve the GPL-3.0-only adapted stylesheet and Blur my Shell attribution; original implementation code is MIT. See LICENSING.md. Keep runtime at repo root.
 
 - Two independent effects and preferences pages: Pop-up backgrounds and Scheme pipelines.
 - Popup internal API adapter is in policy.js. Pipeline schema access is in
@@ -26,3 +26,7 @@ Preserve GPL-3.0-only and Blur my Shell attribution. Keep runtime at repo root.
   mocks and smoke tests are not native GNOME rendering QA. Keep TESTING.md honest.
 - Preserve normal Gitpulsar Pull history; never force push. Historical release
   legacy-v1.1.0 preserves Dynamic Overview Popup Backgrounds under its old UUID.
+
+License policy: follow LICENSING.md. Prefer MIT for independent original work,
+then GPL-2.0-or-later where compatible; preserve stricter upstream grants,
+attribution and asset licenses. Never infer permission for unlicensed code.

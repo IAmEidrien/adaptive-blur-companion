@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: MIT
 // Pure selection policy shared with tests. No rendering or pipeline-definition edits.
 export function resolveScheme(value) {
     return value === 'prefer-dark' ? 'dark' : 'light';

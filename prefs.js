@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: MIT
 import Adw from 'gi://Adw';
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';

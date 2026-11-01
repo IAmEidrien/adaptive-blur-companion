@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: MIT
 // Installed only by run-shell.py as a separate test extension. Real Shell + BMS.
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
