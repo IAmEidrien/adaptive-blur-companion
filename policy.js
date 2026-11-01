@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-License-Identifier: MIT
 export const BMS_UUID = 'blur-my-shell@aunetx';
 export const ACTIVE_CLASS = 'opb-active';
 export const TRANSPARENT_CLASS = 'opb-transparent';

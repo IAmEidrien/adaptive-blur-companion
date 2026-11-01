@@ -75,5 +75,5 @@ runtime dependencies. BMS continues to handle blur rendering outside Overview.
 GSettings smoke checks with fixture BMS schemas. **These checks do not replace
 full desktop visual testing**; see TESTING.md for the separate native Shell matrix.
 
-Design and direction: Eidrien. Implementation was AI-assisted. GPL-3.0-only;
+Design and direction: Eidrien. Implementation was AI-assisted. Original implementation: MIT; adapted stylesheet and combined extension: GPL-3.0-only;
 see LICENSE and NOTICE.md for BMS attribution.

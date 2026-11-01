@@ -16,4 +16,5 @@ Relevant files:
 
 The lifecycle, guards, notifications, Overview policy, and scoped class ownership
 in this companion are separate implementation code. Blur my Shell itself is
-neither bundled nor modified. Its GPL license text is included as LICENSE.
+neither bundled nor modified. Its GPL license text is included as COPYING. Original implementation code
+is MIT under LICENSE; the adapted stylesheet remains GPL-3.0-only. See LICENSING.md.
